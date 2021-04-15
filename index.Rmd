@@ -1,0 +1,121 @@
+---
+title: "Psicometria aplicada no R"
+output:
+  html_notebook:
+    toc: yes
+    toc_float: yes
+    number_sections: yes
+    theme: united
+    highlight: textmate
+editor_options: 
+  chunk_output_type: inline
+---
+
+
+```{r global options, include = FALSE}
+knitr::opts_chunk$set(echo = TRUE, 
+                      warning = FALSE, 
+                      messages = FALSE, 
+                      include = TRUE,
+                      results = "hide")
+```
+
+
+Last update:  `r format(Sys.time(), '%d %B, %Y')`
+
+
+<div class="alert alert-warning">
+**Proposta**   
+Estes códigos apresentam a rotina utilizada no curso Psicometria aplicada.
+As aulas foram dadas em abril e maio de 2021.
+Códigos e rotinas por Luis Anunciação, luisfca@puc-rio.br  
+</div>
+
+# Aula 1 - CVC
+
+## pacotes
+
+```{r}
+pacman::p_load(tidyverse, psych, knitr)
+```
+
+
+## Pegar os dados
+
+```{r}
+ds_cvc <- read.csv(url("https://osf.io/4dg7b/download"))
+```
+
+
+## CVC pertinência
+
+```{r}
+cvc_pertinencia <- ds_cvc %>% 
+  summarise(across(x_1:x_54, mean)) %>% 
+  t() %>% 
+  as.data.frame() %>% 
+  rownames_to_column("item") %>% 
+  mutate(cvc = V1/5) %>% 
+  mutate(pei = (1/11)^11) %>% 
+  mutate(cvc_a_pertinencia = round(cvc-pei,1))
+```
+
+```{r}
+cvc_pertinencia %>% 
+  kable()
+```
+
+O CVC do quesito perin6encia foi de `r round(mean(cvc_pertinencia$cvc_a_pertinencia),2)`
+
+## CVC clareza
+
+
+```{r}
+cvc_clareza <- ds_cvc %>% 
+  summarise(across(y_1:y_54, mean)) %>% 
+  t() %>% 
+  as.data.frame() %>% 
+  rownames_to_column("item") %>% 
+  mutate(cvc = V1/5) %>% 
+  mutate(pei = (1/11)^11) %>% 
+  mutate(cvc_a_clareza = round(cvc-pei,1))
+```
+
+```{r}
+cvc_clareza %>% 
+  kable()
+```
+
+O CVC do quesito clareza foi de `r round(mean(cvc_clareza$cvc_a_clareza),2)`
+
+
+## Unir ambos os CVCs
+
+```{r}
+ds_cvc_pertinencia_clareza <- bind_cols(cvc_pertinencia,
+                                        cvc_clareza) %>% 
+  select(item...1, starts_with("cvc_a_"))
+
+```
+
+## Apresentar
+
+```{r}
+ds_cvc_pertinencia_clareza %>% 
+  kable()
+```
+
+O CVC geral foi de `r round(1/2*(mean(ds_cvc_pertinencia_clareza$cvc_a_pertinencia)+mean(ds_cvc_pertinencia_clareza$cvc_a_clareza)),1)`.
+
+## Sugestões
+
+É possível propor algumas sugestões, como deixar apenas os itens em que ambos os CVCs são superiores a 0.7
+
+```{r}
+ds_cvc_pertinencia_clareza %>% 
+  filter(cvc_a_pertinencia >= 0.7 & cvc_a_clareza >= 0.7 ) %>% 
+  kable()
+```
+Nesta sugestão, ficam `r ds_cvc_pertinencia_clareza %>% filter(cvc_a_pertinencia >= 0.7 & cvc_a_clareza >= 0.7 ) %>% nrow()` itens.
+
+> Fim da aula 1
