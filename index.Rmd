@@ -1,5 +1,5 @@
 ---
-title: "Psicometria aplicada no R"
+title: "Psicometria aplicada no R - Aula 1"
 output:
   html_notebook:
     toc: yes

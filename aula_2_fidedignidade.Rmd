@@ -1,0 +1,78 @@
+---
+title: "Psicometria aplicada no R - Aula 2"
+output:
+  html_notebook:
+    toc: yes
+    toc_float: yes
+    number_sections: yes
+    theme: united
+    highlight: textmate
+editor_options: 
+  chunk_output_type: inline
+---
+
+
+# Aula 2 - Fidedignidade
+
+
+## pacotes
+
+```{r}
+pacman::p_load(tidyverse, psych, knitr)
+```
+
+
+## Pegar os dados
+
+```{r}
+ds_mapfre <- read.csv(url("https://osf.io/e639b/download"))
+```
+
+
+## BAI
+
+```{r}
+ds_bai <- ds_mapfre %>% 
+  select(starts_with("bai"),-bai_sum, -bai_class)
+```
+
+
+
+
+## Fidedignidade
+
+### Correlação não redundante/não cumulativa entre os itens
+
+```{r}
+ds_bai_interitem <- ds_bai %>% 
+  corrr::correlate() %>% 
+  select(-term) %>% 
+  colMeans(na.rm = TRUE) %>% 
+  as.data.frame() %>% 
+  set_names("cor") %>% 
+  rownames_to_column("item")
+```
+### Coeficiente de correlação interitem
+
+```{r}
+mean(ds_bai_interitem$cor)
+```
+
+
+### Duas metades
+
+```{r}
+splitHalf(ds_bai)
+```
+
+### Alfa de Cronbach  
+
+```{r}
+alpha(ds_bai)
+```
+
+### Aresentação
+
+```{r}
+alpha(ds_bai)$item.stats
+```
