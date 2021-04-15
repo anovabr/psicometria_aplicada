@@ -57,7 +57,7 @@ cvc_pertinencia <- ds_cvc %>%
   rownames_to_column("item") %>% 
   mutate(cvc = V1/5) %>% 
   mutate(pei = (1/11)^11) %>% 
-  mutate(cvc_a_pertinencia = round(cvc-pei,1))
+  mutate(cvc_a_pertinencia = round(cvc-pei,2))
 ```
 
 ```{r}
@@ -78,7 +78,7 @@ cvc_clareza <- ds_cvc %>%
   rownames_to_column("item") %>% 
   mutate(cvc = V1/5) %>% 
   mutate(pei = (1/11)^11) %>% 
-  mutate(cvc_a_clareza = round(cvc-pei,1))
+  mutate(cvc_a_clareza = round(cvc-pei,2))
 ```
 
 ```{r}
@@ -113,7 +113,9 @@ O CVC geral foi de `r round(1/2*(mean(ds_cvc_pertinencia_clareza$cvc_a_pertinenc
 
 ```{r}
 ds_cvc_pertinencia_clareza %>% 
-  filter(cvc_a_pertinencia >= 0.7 & cvc_a_clareza >= 0.7 ) %>% 
+  filter(cvc_a_pertinencia >= 0.7 & cvc_a_clareza >= 0.7) %>% 
+  mutate(posicao = row_number()) %>% 
+  select(posicao, everything()) %>% 
   kable()
 ```
 Nesta sugestão, ficam `r ds_cvc_pertinencia_clareza %>% filter(cvc_a_pertinencia >= 0.7 & cvc_a_clareza >= 0.7 ) %>% nrow()` itens.

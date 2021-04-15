@@ -324,24 +324,10 @@ Estes códigos apresentam a rotina utilizada no curso Psicometria aplicada. As a
 <h2 number="1.3"><span class="header-section-number">1.3</span> CVC pertinência</h2>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuY3ZjX3BlcnRpbmVuY2lhIDwtIGRzX2N2YyAlPiUgXG4gIHN1bW1hcmlzZShhY3Jvc3MoeF8xOnhfNTQsIG1lYW4pKSAlPiUgXG4gIHQoKSAlPiUgXG4gIGFzLmRhdGEuZnJhbWUoKSAlPiUgXG4gIHJvd25hbWVzX3RvX2NvbHVtbihcIml0ZW1cIikgJT4lIFxuICBtdXRhdGUoY3ZjID0gVjEvNSkgJT4lIFxuICBtdXRhdGUocGVpID0gKDEvMTEpXjExKSAlPiUgXG4gIG11dGF0ZShjdmNfYV9wZXJ0aW5lbmNpYSA9IHJvdW5kKGN2Yy1wZWksMSkpXG5gYGAifQ== -->
-<pre class="r"><code>cvc_pertinencia &lt;- ds_cvc %&gt;% 
-  summarise(across(x_1:x_54, mean)) %&gt;% 
-  t() %&gt;% 
-  as.data.frame() %&gt;% 
-  rownames_to_column(&quot;item&quot;) %&gt;% 
-  mutate(cvc = V1/5) %&gt;% 
-  mutate(pei = (1/11)^11) %&gt;% 
-  mutate(cvc_a_pertinencia = round(cvc-pei,1))</code></pre>
-<!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuY3ZjX3BlcnRpbmVuY2lhICU+JSBcbiAga2FibGUoKVxuYGBgIn0= -->
-<pre class="r"><code>cvc_pertinencia %&gt;% 
-  kable()</code></pre>
-<!-- rnb-source-end -->
 
 <!-- rnb-html-begin eyJtZXRhZGF0YSI6eyJjbGFzc2VzIjpbImtuaXRfYXNpcyJdLCJzaXppbmdQb2xpY3kiOltdfX0= -->
 
@@ -361,378 +347,378 @@ Estes códigos apresentam a rotina utilizada no curso Psicometria aplicada. As a
 <td align="right">3.181818</td>
 <td align="right">0.6363636</td>
 <td align="right">0</td>
-<td align="right">0.6</td>
+<td align="right">0.64</td>
 </tr>
 <tr class="even">
 <td align="left">x_2</td>
 <td align="right">3.909091</td>
 <td align="right">0.7818182</td>
 <td align="right">0</td>
-<td align="right">0.8</td>
+<td align="right">0.78</td>
 </tr>
 <tr class="odd">
 <td align="left">x_3</td>
 <td align="right">2.636364</td>
 <td align="right">0.5272727</td>
 <td align="right">0</td>
-<td align="right">0.5</td>
+<td align="right">0.53</td>
 </tr>
 <tr class="even">
 <td align="left">x_4</td>
 <td align="right">2.636364</td>
 <td align="right">0.5272727</td>
 <td align="right">0</td>
-<td align="right">0.5</td>
+<td align="right">0.53</td>
 </tr>
 <tr class="odd">
 <td align="left">x_5</td>
 <td align="right">2.363636</td>
 <td align="right">0.4727273</td>
 <td align="right">0</td>
-<td align="right">0.5</td>
+<td align="right">0.47</td>
 </tr>
 <tr class="even">
 <td align="left">x_6</td>
 <td align="right">3.363636</td>
 <td align="right">0.6727273</td>
 <td align="right">0</td>
-<td align="right">0.7</td>
+<td align="right">0.67</td>
 </tr>
 <tr class="odd">
 <td align="left">x_7</td>
 <td align="right">2.272727</td>
 <td align="right">0.4545455</td>
 <td align="right">0</td>
-<td align="right">0.5</td>
+<td align="right">0.45</td>
 </tr>
 <tr class="even">
 <td align="left">x_8</td>
 <td align="right">3.363636</td>
 <td align="right">0.6727273</td>
 <td align="right">0</td>
-<td align="right">0.7</td>
+<td align="right">0.67</td>
 </tr>
 <tr class="odd">
 <td align="left">x_9</td>
 <td align="right">1.818182</td>
 <td align="right">0.3636364</td>
 <td align="right">0</td>
-<td align="right">0.4</td>
+<td align="right">0.36</td>
 </tr>
 <tr class="even">
 <td align="left">x_10</td>
 <td align="right">3.727273</td>
 <td align="right">0.7454545</td>
 <td align="right">0</td>
-<td align="right">0.7</td>
+<td align="right">0.75</td>
 </tr>
 <tr class="odd">
 <td align="left">x_11</td>
 <td align="right">3.181818</td>
 <td align="right">0.6363636</td>
 <td align="right">0</td>
-<td align="right">0.6</td>
+<td align="right">0.64</td>
 </tr>
 <tr class="even">
 <td align="left">x_12</td>
 <td align="right">4.090909</td>
 <td align="right">0.8181818</td>
 <td align="right">0</td>
-<td align="right">0.8</td>
+<td align="right">0.82</td>
 </tr>
 <tr class="odd">
 <td align="left">x_13</td>
 <td align="right">2.454546</td>
 <td align="right">0.4909091</td>
 <td align="right">0</td>
-<td align="right">0.5</td>
+<td align="right">0.49</td>
 </tr>
 <tr class="even">
 <td align="left">x_14</td>
 <td align="right">4.727273</td>
 <td align="right">0.9454545</td>
 <td align="right">0</td>
-<td align="right">0.9</td>
+<td align="right">0.95</td>
 </tr>
 <tr class="odd">
 <td align="left">x_15</td>
 <td align="right">3.454546</td>
 <td align="right">0.6909091</td>
 <td align="right">0</td>
-<td align="right">0.7</td>
+<td align="right">0.69</td>
 </tr>
 <tr class="even">
 <td align="left">x_16</td>
 <td align="right">4.000000</td>
 <td align="right">0.8000000</td>
 <td align="right">0</td>
-<td align="right">0.8</td>
+<td align="right">0.80</td>
 </tr>
 <tr class="odd">
 <td align="left">x_17</td>
 <td align="right">3.181818</td>
 <td align="right">0.6363636</td>
 <td align="right">0</td>
-<td align="right">0.6</td>
+<td align="right">0.64</td>
 </tr>
 <tr class="even">
 <td align="left">x_18</td>
 <td align="right">3.818182</td>
 <td align="right">0.7636364</td>
 <td align="right">0</td>
-<td align="right">0.8</td>
+<td align="right">0.76</td>
 </tr>
 <tr class="odd">
 <td align="left">x_19</td>
 <td align="right">3.090909</td>
 <td align="right">0.6181818</td>
 <td align="right">0</td>
-<td align="right">0.6</td>
+<td align="right">0.62</td>
 </tr>
 <tr class="even">
 <td align="left">x_20</td>
 <td align="right">4.181818</td>
 <td align="right">0.8363636</td>
 <td align="right">0</td>
-<td align="right">0.8</td>
+<td align="right">0.84</td>
 </tr>
 <tr class="odd">
 <td align="left">x_21</td>
 <td align="right">2.909091</td>
 <td align="right">0.5818182</td>
 <td align="right">0</td>
-<td align="right">0.6</td>
+<td align="right">0.58</td>
 </tr>
 <tr class="even">
 <td align="left">x_22</td>
 <td align="right">2.909091</td>
 <td align="right">0.5818182</td>
 <td align="right">0</td>
-<td align="right">0.6</td>
+<td align="right">0.58</td>
 </tr>
 <tr class="odd">
 <td align="left">x_23</td>
 <td align="right">2.454546</td>
 <td align="right">0.4909091</td>
 <td align="right">0</td>
-<td align="right">0.5</td>
+<td align="right">0.49</td>
 </tr>
 <tr class="even">
 <td align="left">x_24</td>
 <td align="right">3.909091</td>
 <td align="right">0.7818182</td>
 <td align="right">0</td>
-<td align="right">0.8</td>
+<td align="right">0.78</td>
 </tr>
 <tr class="odd">
 <td align="left">x_25</td>
 <td align="right">3.000000</td>
 <td align="right">0.6000000</td>
 <td align="right">0</td>
-<td align="right">0.6</td>
+<td align="right">0.60</td>
 </tr>
 <tr class="even">
 <td align="left">x_26</td>
 <td align="right">3.000000</td>
 <td align="right">0.6000000</td>
 <td align="right">0</td>
-<td align="right">0.6</td>
+<td align="right">0.60</td>
 </tr>
 <tr class="odd">
 <td align="left">x_27</td>
 <td align="right">3.000000</td>
 <td align="right">0.6000000</td>
 <td align="right">0</td>
-<td align="right">0.6</td>
+<td align="right">0.60</td>
 </tr>
 <tr class="even">
 <td align="left">x_28</td>
 <td align="right">2.909091</td>
 <td align="right">0.5818182</td>
 <td align="right">0</td>
-<td align="right">0.6</td>
+<td align="right">0.58</td>
 </tr>
 <tr class="odd">
 <td align="left">x_29</td>
 <td align="right">3.818182</td>
 <td align="right">0.7636364</td>
 <td align="right">0</td>
-<td align="right">0.8</td>
+<td align="right">0.76</td>
 </tr>
 <tr class="even">
 <td align="left">x_30</td>
 <td align="right">3.363636</td>
 <td align="right">0.6727273</td>
 <td align="right">0</td>
-<td align="right">0.7</td>
+<td align="right">0.67</td>
 </tr>
 <tr class="odd">
 <td align="left">x_31</td>
 <td align="right">3.545454</td>
 <td align="right">0.7090909</td>
 <td align="right">0</td>
-<td align="right">0.7</td>
+<td align="right">0.71</td>
 </tr>
 <tr class="even">
 <td align="left">x_32</td>
 <td align="right">2.909091</td>
 <td align="right">0.5818182</td>
 <td align="right">0</td>
-<td align="right">0.6</td>
+<td align="right">0.58</td>
 </tr>
 <tr class="odd">
 <td align="left">x_33</td>
 <td align="right">3.454546</td>
 <td align="right">0.6909091</td>
 <td align="right">0</td>
-<td align="right">0.7</td>
+<td align="right">0.69</td>
 </tr>
 <tr class="even">
 <td align="left">x_34</td>
 <td align="right">3.818182</td>
 <td align="right">0.7636364</td>
 <td align="right">0</td>
-<td align="right">0.8</td>
+<td align="right">0.76</td>
 </tr>
 <tr class="odd">
 <td align="left">x_35</td>
 <td align="right">3.454546</td>
 <td align="right">0.6909091</td>
 <td align="right">0</td>
-<td align="right">0.7</td>
+<td align="right">0.69</td>
 </tr>
 <tr class="even">
 <td align="left">x_36</td>
 <td align="right">3.727273</td>
 <td align="right">0.7454545</td>
 <td align="right">0</td>
-<td align="right">0.7</td>
+<td align="right">0.75</td>
 </tr>
 <tr class="odd">
 <td align="left">x_37</td>
 <td align="right">3.636364</td>
 <td align="right">0.7272727</td>
 <td align="right">0</td>
-<td align="right">0.7</td>
+<td align="right">0.73</td>
 </tr>
 <tr class="even">
 <td align="left">x_38</td>
 <td align="right">4.818182</td>
 <td align="right">0.9636364</td>
 <td align="right">0</td>
-<td align="right">1.0</td>
+<td align="right">0.96</td>
 </tr>
 <tr class="odd">
 <td align="left">x_39</td>
 <td align="right">3.454546</td>
 <td align="right">0.6909091</td>
 <td align="right">0</td>
-<td align="right">0.7</td>
+<td align="right">0.69</td>
 </tr>
 <tr class="even">
 <td align="left">x_40</td>
 <td align="right">3.818182</td>
 <td align="right">0.7636364</td>
 <td align="right">0</td>
-<td align="right">0.8</td>
+<td align="right">0.76</td>
 </tr>
 <tr class="odd">
 <td align="left">x_41</td>
 <td align="right">3.909091</td>
 <td align="right">0.7818182</td>
 <td align="right">0</td>
-<td align="right">0.8</td>
+<td align="right">0.78</td>
 </tr>
 <tr class="even">
 <td align="left">x_42</td>
 <td align="right">3.636364</td>
 <td align="right">0.7272727</td>
 <td align="right">0</td>
-<td align="right">0.7</td>
+<td align="right">0.73</td>
 </tr>
 <tr class="odd">
 <td align="left">x_43</td>
 <td align="right">2.636364</td>
 <td align="right">0.5272727</td>
 <td align="right">0</td>
-<td align="right">0.5</td>
+<td align="right">0.53</td>
 </tr>
 <tr class="even">
 <td align="left">x_44</td>
 <td align="right">3.636364</td>
 <td align="right">0.7272727</td>
 <td align="right">0</td>
-<td align="right">0.7</td>
+<td align="right">0.73</td>
 </tr>
 <tr class="odd">
 <td align="left">x_45</td>
 <td align="right">2.181818</td>
 <td align="right">0.4363636</td>
 <td align="right">0</td>
-<td align="right">0.4</td>
+<td align="right">0.44</td>
 </tr>
 <tr class="even">
 <td align="left">x_46</td>
 <td align="right">4.545454</td>
 <td align="right">0.9090909</td>
 <td align="right">0</td>
-<td align="right">0.9</td>
+<td align="right">0.91</td>
 </tr>
 <tr class="odd">
 <td align="left">x_47</td>
 <td align="right">3.363636</td>
 <td align="right">0.6727273</td>
 <td align="right">0</td>
-<td align="right">0.7</td>
+<td align="right">0.67</td>
 </tr>
 <tr class="even">
 <td align="left">x_48</td>
 <td align="right">3.272727</td>
 <td align="right">0.6545455</td>
 <td align="right">0</td>
-<td align="right">0.7</td>
+<td align="right">0.65</td>
 </tr>
 <tr class="odd">
 <td align="left">x_49</td>
 <td align="right">2.636364</td>
 <td align="right">0.5272727</td>
 <td align="right">0</td>
-<td align="right">0.5</td>
+<td align="right">0.53</td>
 </tr>
 <tr class="even">
 <td align="left">x_50</td>
 <td align="right">3.545454</td>
 <td align="right">0.7090909</td>
 <td align="right">0</td>
-<td align="right">0.7</td>
+<td align="right">0.71</td>
 </tr>
 <tr class="odd">
 <td align="left">x_51</td>
 <td align="right">2.818182</td>
 <td align="right">0.5636364</td>
 <td align="right">0</td>
-<td align="right">0.6</td>
+<td align="right">0.56</td>
 </tr>
 <tr class="even">
 <td align="left">x_52</td>
 <td align="right">4.636364</td>
 <td align="right">0.9272727</td>
 <td align="right">0</td>
-<td align="right">0.9</td>
+<td align="right">0.93</td>
 </tr>
 <tr class="odd">
 <td align="left">x_53</td>
 <td align="right">4.000000</td>
 <td align="right">0.8000000</td>
 <td align="right">0</td>
-<td align="right">0.8</td>
+<td align="right">0.80</td>
 </tr>
 <tr class="even">
 <td align="left">x_54</td>
 <td align="right">4.727273</td>
 <td align="right">0.9454545</td>
 <td align="right">0</td>
-<td align="right">0.9</td>
+<td align="right">0.95</td>
 </tr>
 </tbody>
 </table>
@@ -748,24 +734,10 @@ Estes códigos apresentam a rotina utilizada no curso Psicometria aplicada. As a
 <h2 number="1.4"><span class="header-section-number">1.4</span> CVC clareza</h2>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuY3ZjX2NsYXJlemEgPC0gZHNfY3ZjICU+JSBcbiAgc3VtbWFyaXNlKGFjcm9zcyh5XzE6eV81NCwgbWVhbikpICU+JSBcbiAgdCgpICU+JSBcbiAgYXMuZGF0YS5mcmFtZSgpICU+JSBcbiAgcm93bmFtZXNfdG9fY29sdW1uKFwiaXRlbVwiKSAlPiUgXG4gIG11dGF0ZShjdmMgPSBWMS81KSAlPiUgXG4gIG11dGF0ZShwZWkgPSAoMS8xMSleMTEpICU+JSBcbiAgbXV0YXRlKGN2Y19hX2NsYXJlemEgPSByb3VuZChjdmMtcGVpLDEpKVxuYGBgIn0= -->
-<pre class="r"><code>cvc_clareza &lt;- ds_cvc %&gt;% 
-  summarise(across(y_1:y_54, mean)) %&gt;% 
-  t() %&gt;% 
-  as.data.frame() %&gt;% 
-  rownames_to_column(&quot;item&quot;) %&gt;% 
-  mutate(cvc = V1/5) %&gt;% 
-  mutate(pei = (1/11)^11) %&gt;% 
-  mutate(cvc_a_clareza = round(cvc-pei,1))</code></pre>
-<!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuY3ZjX2NsYXJlemEgJT4lIFxuICBrYWJsZSgpXG5gYGAifQ== -->
-<pre class="r"><code>cvc_clareza %&gt;% 
-  kable()</code></pre>
-<!-- rnb-source-end -->
 
 <!-- rnb-html-begin eyJtZXRhZGF0YSI6eyJjbGFzc2VzIjpbImtuaXRfYXNpcyJdLCJzaXppbmdQb2xpY3kiOltdfX0= -->
 
@@ -785,378 +757,378 @@ Estes códigos apresentam a rotina utilizada no curso Psicometria aplicada. As a
 <td align="right">4.727273</td>
 <td align="right">0.9454545</td>
 <td align="right">0</td>
-<td align="right">0.9</td>
+<td align="right">0.95</td>
 </tr>
 <tr class="even">
 <td align="left">y_2</td>
 <td align="right">4.363636</td>
 <td align="right">0.8727273</td>
 <td align="right">0</td>
-<td align="right">0.9</td>
+<td align="right">0.87</td>
 </tr>
 <tr class="odd">
 <td align="left">y_3</td>
 <td align="right">4.727273</td>
 <td align="right">0.9454545</td>
 <td align="right">0</td>
-<td align="right">0.9</td>
+<td align="right">0.95</td>
 </tr>
 <tr class="even">
 <td align="left">y_4</td>
 <td align="right">4.272727</td>
 <td align="right">0.8545455</td>
 <td align="right">0</td>
-<td align="right">0.9</td>
+<td align="right">0.85</td>
 </tr>
 <tr class="odd">
 <td align="left">y_5</td>
 <td align="right">4.090909</td>
 <td align="right">0.8181818</td>
 <td align="right">0</td>
-<td align="right">0.8</td>
+<td align="right">0.82</td>
 </tr>
 <tr class="even">
 <td align="left">y_6</td>
 <td align="right">4.272727</td>
 <td align="right">0.8545455</td>
 <td align="right">0</td>
-<td align="right">0.9</td>
+<td align="right">0.85</td>
 </tr>
 <tr class="odd">
 <td align="left">y_7</td>
 <td align="right">3.909091</td>
 <td align="right">0.7818182</td>
 <td align="right">0</td>
-<td align="right">0.8</td>
+<td align="right">0.78</td>
 </tr>
 <tr class="even">
 <td align="left">y_8</td>
 <td align="right">4.545454</td>
 <td align="right">0.9090909</td>
 <td align="right">0</td>
-<td align="right">0.9</td>
+<td align="right">0.91</td>
 </tr>
 <tr class="odd">
 <td align="left">y_9</td>
 <td align="right">3.727273</td>
 <td align="right">0.7454545</td>
 <td align="right">0</td>
-<td align="right">0.7</td>
+<td align="right">0.75</td>
 </tr>
 <tr class="even">
 <td align="left">y_10</td>
 <td align="right">4.454546</td>
 <td align="right">0.8909091</td>
 <td align="right">0</td>
-<td align="right">0.9</td>
+<td align="right">0.89</td>
 </tr>
 <tr class="odd">
 <td align="left">y_11</td>
 <td align="right">4.727273</td>
 <td align="right">0.9454545</td>
 <td align="right">0</td>
-<td align="right">0.9</td>
+<td align="right">0.95</td>
 </tr>
 <tr class="even">
 <td align="left">y_12</td>
 <td align="right">4.545454</td>
 <td align="right">0.9090909</td>
 <td align="right">0</td>
-<td align="right">0.9</td>
+<td align="right">0.91</td>
 </tr>
 <tr class="odd">
 <td align="left">y_13</td>
 <td align="right">4.272727</td>
 <td align="right">0.8545455</td>
 <td align="right">0</td>
-<td align="right">0.9</td>
+<td align="right">0.85</td>
 </tr>
 <tr class="even">
 <td align="left">y_14</td>
 <td align="right">4.818182</td>
 <td align="right">0.9636364</td>
 <td align="right">0</td>
-<td align="right">1.0</td>
+<td align="right">0.96</td>
 </tr>
 <tr class="odd">
 <td align="left">y_15</td>
 <td align="right">4.363636</td>
 <td align="right">0.8727273</td>
 <td align="right">0</td>
-<td align="right">0.9</td>
+<td align="right">0.87</td>
 </tr>
 <tr class="even">
 <td align="left">y_16</td>
 <td align="right">4.727273</td>
 <td align="right">0.9454545</td>
 <td align="right">0</td>
-<td align="right">0.9</td>
+<td align="right">0.95</td>
 </tr>
 <tr class="odd">
 <td align="left">y_17</td>
 <td align="right">4.727273</td>
 <td align="right">0.9454545</td>
 <td align="right">0</td>
-<td align="right">0.9</td>
+<td align="right">0.95</td>
 </tr>
 <tr class="even">
 <td align="left">y_18</td>
 <td align="right">4.545454</td>
 <td align="right">0.9090909</td>
 <td align="right">0</td>
-<td align="right">0.9</td>
+<td align="right">0.91</td>
 </tr>
 <tr class="odd">
 <td align="left">y_19</td>
 <td align="right">4.545454</td>
 <td align="right">0.9090909</td>
 <td align="right">0</td>
-<td align="right">0.9</td>
+<td align="right">0.91</td>
 </tr>
 <tr class="even">
 <td align="left">y_20</td>
 <td align="right">4.818182</td>
 <td align="right">0.9636364</td>
 <td align="right">0</td>
-<td align="right">1.0</td>
+<td align="right">0.96</td>
 </tr>
 <tr class="odd">
 <td align="left">y_21</td>
 <td align="right">4.818182</td>
 <td align="right">0.9636364</td>
 <td align="right">0</td>
-<td align="right">1.0</td>
+<td align="right">0.96</td>
 </tr>
 <tr class="even">
 <td align="left">y_22</td>
 <td align="right">4.363636</td>
 <td align="right">0.8727273</td>
 <td align="right">0</td>
-<td align="right">0.9</td>
+<td align="right">0.87</td>
 </tr>
 <tr class="odd">
 <td align="left">y_23</td>
 <td align="right">3.363636</td>
 <td align="right">0.6727273</td>
 <td align="right">0</td>
-<td align="right">0.7</td>
+<td align="right">0.67</td>
 </tr>
 <tr class="even">
 <td align="left">y_24</td>
 <td align="right">4.000000</td>
 <td align="right">0.8000000</td>
 <td align="right">0</td>
-<td align="right">0.8</td>
+<td align="right">0.80</td>
 </tr>
 <tr class="odd">
 <td align="left">y_25</td>
 <td align="right">4.545454</td>
 <td align="right">0.9090909</td>
 <td align="right">0</td>
-<td align="right">0.9</td>
+<td align="right">0.91</td>
 </tr>
 <tr class="even">
 <td align="left">y_26</td>
 <td align="right">4.363636</td>
 <td align="right">0.8727273</td>
 <td align="right">0</td>
-<td align="right">0.9</td>
+<td align="right">0.87</td>
 </tr>
 <tr class="odd">
 <td align="left">y_27</td>
 <td align="right">4.545454</td>
 <td align="right">0.9090909</td>
 <td align="right">0</td>
-<td align="right">0.9</td>
+<td align="right">0.91</td>
 </tr>
 <tr class="even">
 <td align="left">y_28</td>
 <td align="right">4.363636</td>
 <td align="right">0.8727273</td>
 <td align="right">0</td>
-<td align="right">0.9</td>
+<td align="right">0.87</td>
 </tr>
 <tr class="odd">
 <td align="left">y_29</td>
 <td align="right">4.454546</td>
 <td align="right">0.8909091</td>
 <td align="right">0</td>
-<td align="right">0.9</td>
+<td align="right">0.89</td>
 </tr>
 <tr class="even">
 <td align="left">y_30</td>
 <td align="right">4.454546</td>
 <td align="right">0.8909091</td>
 <td align="right">0</td>
-<td align="right">0.9</td>
+<td align="right">0.89</td>
 </tr>
 <tr class="odd">
 <td align="left">y_31</td>
 <td align="right">4.181818</td>
 <td align="right">0.8363636</td>
 <td align="right">0</td>
-<td align="right">0.8</td>
+<td align="right">0.84</td>
 </tr>
 <tr class="even">
 <td align="left">y_32</td>
 <td align="right">3.818182</td>
 <td align="right">0.7636364</td>
 <td align="right">0</td>
-<td align="right">0.8</td>
+<td align="right">0.76</td>
 </tr>
 <tr class="odd">
 <td align="left">y_33</td>
 <td align="right">4.272727</td>
 <td align="right">0.8545455</td>
 <td align="right">0</td>
-<td align="right">0.9</td>
+<td align="right">0.85</td>
 </tr>
 <tr class="even">
 <td align="left">y_34</td>
 <td align="right">4.363636</td>
 <td align="right">0.8727273</td>
 <td align="right">0</td>
-<td align="right">0.9</td>
+<td align="right">0.87</td>
 </tr>
 <tr class="odd">
 <td align="left">y_35</td>
 <td align="right">4.818182</td>
 <td align="right">0.9636364</td>
 <td align="right">0</td>
-<td align="right">1.0</td>
+<td align="right">0.96</td>
 </tr>
 <tr class="even">
 <td align="left">y_36</td>
 <td align="right">4.363636</td>
 <td align="right">0.8727273</td>
 <td align="right">0</td>
-<td align="right">0.9</td>
+<td align="right">0.87</td>
 </tr>
 <tr class="odd">
 <td align="left">y_37</td>
 <td align="right">4.545454</td>
 <td align="right">0.9090909</td>
 <td align="right">0</td>
-<td align="right">0.9</td>
+<td align="right">0.91</td>
 </tr>
 <tr class="even">
 <td align="left">y_38</td>
 <td align="right">4.545454</td>
 <td align="right">0.9090909</td>
 <td align="right">0</td>
-<td align="right">0.9</td>
+<td align="right">0.91</td>
 </tr>
 <tr class="odd">
 <td align="left">y_39</td>
 <td align="right">4.454546</td>
 <td align="right">0.8909091</td>
 <td align="right">0</td>
-<td align="right">0.9</td>
+<td align="right">0.89</td>
 </tr>
 <tr class="even">
 <td align="left">y_40</td>
 <td align="right">4.545454</td>
 <td align="right">0.9090909</td>
 <td align="right">0</td>
-<td align="right">0.9</td>
+<td align="right">0.91</td>
 </tr>
 <tr class="odd">
 <td align="left">y_41</td>
 <td align="right">4.545454</td>
 <td align="right">0.9090909</td>
 <td align="right">0</td>
-<td align="right">0.9</td>
+<td align="right">0.91</td>
 </tr>
 <tr class="even">
 <td align="left">y_42</td>
 <td align="right">4.818182</td>
 <td align="right">0.9636364</td>
 <td align="right">0</td>
-<td align="right">1.0</td>
+<td align="right">0.96</td>
 </tr>
 <tr class="odd">
 <td align="left">y_43</td>
 <td align="right">4.545454</td>
 <td align="right">0.9090909</td>
 <td align="right">0</td>
-<td align="right">0.9</td>
+<td align="right">0.91</td>
 </tr>
 <tr class="even">
 <td align="left">y_44</td>
 <td align="right">4.545454</td>
 <td align="right">0.9090909</td>
 <td align="right">0</td>
-<td align="right">0.9</td>
+<td align="right">0.91</td>
 </tr>
 <tr class="odd">
 <td align="left">y_45</td>
 <td align="right">4.636364</td>
 <td align="right">0.9272727</td>
 <td align="right">0</td>
-<td align="right">0.9</td>
+<td align="right">0.93</td>
 </tr>
 <tr class="even">
 <td align="left">y_46</td>
 <td align="right">4.909091</td>
 <td align="right">0.9818182</td>
 <td align="right">0</td>
-<td align="right">1.0</td>
+<td align="right">0.98</td>
 </tr>
 <tr class="odd">
 <td align="left">y_47</td>
 <td align="right">4.545454</td>
 <td align="right">0.9090909</td>
 <td align="right">0</td>
-<td align="right">0.9</td>
+<td align="right">0.91</td>
 </tr>
 <tr class="even">
 <td align="left">y_48</td>
 <td align="right">4.272727</td>
 <td align="right">0.8545455</td>
 <td align="right">0</td>
-<td align="right">0.9</td>
+<td align="right">0.85</td>
 </tr>
 <tr class="odd">
 <td align="left">y_49</td>
 <td align="right">3.636364</td>
 <td align="right">0.7272727</td>
 <td align="right">0</td>
-<td align="right">0.7</td>
+<td align="right">0.73</td>
 </tr>
 <tr class="even">
 <td align="left">y_50</td>
 <td align="right">4.363636</td>
 <td align="right">0.8727273</td>
 <td align="right">0</td>
-<td align="right">0.9</td>
+<td align="right">0.87</td>
 </tr>
 <tr class="odd">
 <td align="left">y_51</td>
 <td align="right">4.363636</td>
 <td align="right">0.8727273</td>
 <td align="right">0</td>
-<td align="right">0.9</td>
+<td align="right">0.87</td>
 </tr>
 <tr class="even">
 <td align="left">y_52</td>
 <td align="right">4.545454</td>
 <td align="right">0.9090909</td>
 <td align="right">0</td>
-<td align="right">0.9</td>
+<td align="right">0.91</td>
 </tr>
 <tr class="odd">
 <td align="left">y_53</td>
 <td align="right">4.636364</td>
 <td align="right">0.9272727</td>
 <td align="right">0</td>
-<td align="right">0.9</td>
+<td align="right">0.93</td>
 </tr>
 <tr class="even">
 <td align="left">y_54</td>
 <td align="right">4.727273</td>
 <td align="right">0.9454545</td>
 <td align="right">0</td>
-<td align="right">0.9</td>
+<td align="right">0.95</td>
 </tr>
 </tbody>
 </table>
@@ -1172,10 +1144,11 @@ Estes códigos apresentam a rotina utilizada no curso Psicometria aplicada. As a
 <h2 number="1.5"><span class="header-section-number">1.5</span> Unir ambos os CVCs</h2>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZHNfY3ZjX3BlcnRpbmVuY2lhX2NsYXJlemEgPC0gYmluZF9jb2xzKGN2Y19wZXJ0aW5lbmNpYSxcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBjdmNfY2xhcmV6YSkgJT4lIFxuICBzZWxlY3QoaXRlbS4uLjEsIHN0YXJ0c193aXRoKFwiY3ZjX2FfXCIpKVxuYGBgIn0= -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZHNfY3ZjX3BlcnRpbmVuY2lhX2NsYXJlemEgPC0gYmluZF9jb2xzKGN2Y19wZXJ0aW5lbmNpYSxcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBjdmNfY2xhcmV6YSkgJT4lIFxuICBzZWxlY3QoaXRlbS4uLjEsIHN0YXJ0c193aXRoKFwiY3ZjX2FfXCIpKVxuXG5gYGAifQ== -->
 <pre class="r"><code>ds_cvc_pertinencia_clareza &lt;- bind_cols(cvc_pertinencia,
                                         cvc_clareza) %&gt;% 
-  select(item...1, starts_with(&quot;cvc_a_&quot;))</code></pre>
+  select(item...1, starts_with(&quot;cvc_a_&quot;))
+</code></pre>
 <!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
@@ -1184,298 +1157,6 @@ Estes códigos apresentam a rotina utilizada no curso Psicometria aplicada. As a
 <h2 number="1.6"><span class="header-section-number">1.6</span> Apresentar</h2>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZHNfY3ZjX3BlcnRpbmVuY2lhX2NsYXJlemEgJT4lIFxuICBrYWJsZSgpXG5gYGAifQ== -->
-<pre class="r"><code>ds_cvc_pertinencia_clareza %&gt;% 
-  kable()</code></pre>
-<!-- rnb-source-end -->
-
-<!-- rnb-html-begin eyJtZXRhZGF0YSI6eyJjbGFzc2VzIjpbImtuaXRfYXNpcyJdLCJzaXppbmdQb2xpY3kiOltdfX0= -->
-
-<table>
-<thead>
-<tr class="header">
-<th align="left">item…1</th>
-<th align="right">cvc_a_pertinencia</th>
-<th align="right">cvc_a_clareza</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td align="left">x_1</td>
-<td align="right">0.6</td>
-<td align="right">0.9</td>
-</tr>
-<tr class="even">
-<td align="left">x_2</td>
-<td align="right">0.8</td>
-<td align="right">0.9</td>
-</tr>
-<tr class="odd">
-<td align="left">x_3</td>
-<td align="right">0.5</td>
-<td align="right">0.9</td>
-</tr>
-<tr class="even">
-<td align="left">x_4</td>
-<td align="right">0.5</td>
-<td align="right">0.9</td>
-</tr>
-<tr class="odd">
-<td align="left">x_5</td>
-<td align="right">0.5</td>
-<td align="right">0.8</td>
-</tr>
-<tr class="even">
-<td align="left">x_6</td>
-<td align="right">0.7</td>
-<td align="right">0.9</td>
-</tr>
-<tr class="odd">
-<td align="left">x_7</td>
-<td align="right">0.5</td>
-<td align="right">0.8</td>
-</tr>
-<tr class="even">
-<td align="left">x_8</td>
-<td align="right">0.7</td>
-<td align="right">0.9</td>
-</tr>
-<tr class="odd">
-<td align="left">x_9</td>
-<td align="right">0.4</td>
-<td align="right">0.7</td>
-</tr>
-<tr class="even">
-<td align="left">x_10</td>
-<td align="right">0.7</td>
-<td align="right">0.9</td>
-</tr>
-<tr class="odd">
-<td align="left">x_11</td>
-<td align="right">0.6</td>
-<td align="right">0.9</td>
-</tr>
-<tr class="even">
-<td align="left">x_12</td>
-<td align="right">0.8</td>
-<td align="right">0.9</td>
-</tr>
-<tr class="odd">
-<td align="left">x_13</td>
-<td align="right">0.5</td>
-<td align="right">0.9</td>
-</tr>
-<tr class="even">
-<td align="left">x_14</td>
-<td align="right">0.9</td>
-<td align="right">1.0</td>
-</tr>
-<tr class="odd">
-<td align="left">x_15</td>
-<td align="right">0.7</td>
-<td align="right">0.9</td>
-</tr>
-<tr class="even">
-<td align="left">x_16</td>
-<td align="right">0.8</td>
-<td align="right">0.9</td>
-</tr>
-<tr class="odd">
-<td align="left">x_17</td>
-<td align="right">0.6</td>
-<td align="right">0.9</td>
-</tr>
-<tr class="even">
-<td align="left">x_18</td>
-<td align="right">0.8</td>
-<td align="right">0.9</td>
-</tr>
-<tr class="odd">
-<td align="left">x_19</td>
-<td align="right">0.6</td>
-<td align="right">0.9</td>
-</tr>
-<tr class="even">
-<td align="left">x_20</td>
-<td align="right">0.8</td>
-<td align="right">1.0</td>
-</tr>
-<tr class="odd">
-<td align="left">x_21</td>
-<td align="right">0.6</td>
-<td align="right">1.0</td>
-</tr>
-<tr class="even">
-<td align="left">x_22</td>
-<td align="right">0.6</td>
-<td align="right">0.9</td>
-</tr>
-<tr class="odd">
-<td align="left">x_23</td>
-<td align="right">0.5</td>
-<td align="right">0.7</td>
-</tr>
-<tr class="even">
-<td align="left">x_24</td>
-<td align="right">0.8</td>
-<td align="right">0.8</td>
-</tr>
-<tr class="odd">
-<td align="left">x_25</td>
-<td align="right">0.6</td>
-<td align="right">0.9</td>
-</tr>
-<tr class="even">
-<td align="left">x_26</td>
-<td align="right">0.6</td>
-<td align="right">0.9</td>
-</tr>
-<tr class="odd">
-<td align="left">x_27</td>
-<td align="right">0.6</td>
-<td align="right">0.9</td>
-</tr>
-<tr class="even">
-<td align="left">x_28</td>
-<td align="right">0.6</td>
-<td align="right">0.9</td>
-</tr>
-<tr class="odd">
-<td align="left">x_29</td>
-<td align="right">0.8</td>
-<td align="right">0.9</td>
-</tr>
-<tr class="even">
-<td align="left">x_30</td>
-<td align="right">0.7</td>
-<td align="right">0.9</td>
-</tr>
-<tr class="odd">
-<td align="left">x_31</td>
-<td align="right">0.7</td>
-<td align="right">0.8</td>
-</tr>
-<tr class="even">
-<td align="left">x_32</td>
-<td align="right">0.6</td>
-<td align="right">0.8</td>
-</tr>
-<tr class="odd">
-<td align="left">x_33</td>
-<td align="right">0.7</td>
-<td align="right">0.9</td>
-</tr>
-<tr class="even">
-<td align="left">x_34</td>
-<td align="right">0.8</td>
-<td align="right">0.9</td>
-</tr>
-<tr class="odd">
-<td align="left">x_35</td>
-<td align="right">0.7</td>
-<td align="right">1.0</td>
-</tr>
-<tr class="even">
-<td align="left">x_36</td>
-<td align="right">0.7</td>
-<td align="right">0.9</td>
-</tr>
-<tr class="odd">
-<td align="left">x_37</td>
-<td align="right">0.7</td>
-<td align="right">0.9</td>
-</tr>
-<tr class="even">
-<td align="left">x_38</td>
-<td align="right">1.0</td>
-<td align="right">0.9</td>
-</tr>
-<tr class="odd">
-<td align="left">x_39</td>
-<td align="right">0.7</td>
-<td align="right">0.9</td>
-</tr>
-<tr class="even">
-<td align="left">x_40</td>
-<td align="right">0.8</td>
-<td align="right">0.9</td>
-</tr>
-<tr class="odd">
-<td align="left">x_41</td>
-<td align="right">0.8</td>
-<td align="right">0.9</td>
-</tr>
-<tr class="even">
-<td align="left">x_42</td>
-<td align="right">0.7</td>
-<td align="right">1.0</td>
-</tr>
-<tr class="odd">
-<td align="left">x_43</td>
-<td align="right">0.5</td>
-<td align="right">0.9</td>
-</tr>
-<tr class="even">
-<td align="left">x_44</td>
-<td align="right">0.7</td>
-<td align="right">0.9</td>
-</tr>
-<tr class="odd">
-<td align="left">x_45</td>
-<td align="right">0.4</td>
-<td align="right">0.9</td>
-</tr>
-<tr class="even">
-<td align="left">x_46</td>
-<td align="right">0.9</td>
-<td align="right">1.0</td>
-</tr>
-<tr class="odd">
-<td align="left">x_47</td>
-<td align="right">0.7</td>
-<td align="right">0.9</td>
-</tr>
-<tr class="even">
-<td align="left">x_48</td>
-<td align="right">0.7</td>
-<td align="right">0.9</td>
-</tr>
-<tr class="odd">
-<td align="left">x_49</td>
-<td align="right">0.5</td>
-<td align="right">0.7</td>
-</tr>
-<tr class="even">
-<td align="left">x_50</td>
-<td align="right">0.7</td>
-<td align="right">0.9</td>
-</tr>
-<tr class="odd">
-<td align="left">x_51</td>
-<td align="right">0.6</td>
-<td align="right">0.9</td>
-</tr>
-<tr class="even">
-<td align="left">x_52</td>
-<td align="right">0.9</td>
-<td align="right">0.9</td>
-</tr>
-<tr class="odd">
-<td align="left">x_53</td>
-<td align="right">0.8</td>
-<td align="right">0.9</td>
-</tr>
-<tr class="even">
-<td align="left">x_54</td>
-<td align="right">0.9</td>
-<td align="right">0.9</td>
-</tr>
-</tbody>
-</table>
-
-
-<!-- rnb-html-end -->
-
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <p>O CVC geral foi de 0.8.</p>
@@ -1485,17 +1166,13 @@ Estes códigos apresentam a rotina utilizada no curso Psicometria aplicada. As a
 <p>É possível propor algumas sugestões, como deixar apenas os itens em que ambos os CVCs são superiores a 0.7</p>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZHNfY3ZjX3BlcnRpbmVuY2lhX2NsYXJlemEgJT4lIFxuICBmaWx0ZXIoY3ZjX2FfcGVydGluZW5jaWEgPj0gMC43ICYgY3ZjX2FfY2xhcmV6YSA+PSAwLjcgKSAlPiUgXG4gIGthYmxlKClcbmBgYCJ9 -->
-<pre class="r"><code>ds_cvc_pertinencia_clareza %&gt;% 
-  filter(cvc_a_pertinencia &gt;= 0.7 &amp; cvc_a_clareza &gt;= 0.7 ) %&gt;% 
-  kable()</code></pre>
-<!-- rnb-source-end -->
 
 <!-- rnb-html-begin eyJtZXRhZGF0YSI6eyJjbGFzc2VzIjpbImtuaXRfYXNpcyJdLCJzaXppbmdQb2xpY3kiOltdfX0= -->
 
 <table>
 <thead>
 <tr class="header">
+<th align="right">posicao</th>
 <th align="left">item…1</th>
 <th align="right">cvc_a_pertinencia</th>
 <th align="right">cvc_a_clareza</th>
@@ -1503,164 +1180,34 @@ Estes códigos apresentam a rotina utilizada no curso Psicometria aplicada. As a
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left">x_2</td>
-<td align="right">0.8</td>
-<td align="right">0.9</td>
-</tr>
-<tr class="even">
-<td align="left">x_6</td>
-<td align="right">0.7</td>
-<td align="right">0.9</td>
-</tr>
-<tr class="odd">
-<td align="left">x_8</td>
-<td align="right">0.7</td>
-<td align="right">0.9</td>
-</tr>
-<tr class="even">
-<td align="left">x_10</td>
-<td align="right">0.7</td>
-<td align="right">0.9</td>
-</tr>
-<tr class="odd">
-<td align="left">x_12</td>
-<td align="right">0.8</td>
-<td align="right">0.9</td>
-</tr>
-<tr class="even">
+<td align="right">1</td>
 <td align="left">x_14</td>
-<td align="right">0.9</td>
-<td align="right">1.0</td>
-</tr>
-<tr class="odd">
-<td align="left">x_15</td>
-<td align="right">0.7</td>
-<td align="right">0.9</td>
+<td align="right">0.95</td>
+<td align="right">0.96</td>
 </tr>
 <tr class="even">
-<td align="left">x_16</td>
-<td align="right">0.8</td>
-<td align="right">0.9</td>
-</tr>
-<tr class="odd">
-<td align="left">x_18</td>
-<td align="right">0.8</td>
-<td align="right">0.9</td>
-</tr>
-<tr class="even">
-<td align="left">x_20</td>
-<td align="right">0.8</td>
-<td align="right">1.0</td>
-</tr>
-<tr class="odd">
-<td align="left">x_24</td>
-<td align="right">0.8</td>
-<td align="right">0.8</td>
-</tr>
-<tr class="even">
-<td align="left">x_29</td>
-<td align="right">0.8</td>
-<td align="right">0.9</td>
-</tr>
-<tr class="odd">
-<td align="left">x_30</td>
-<td align="right">0.7</td>
-<td align="right">0.9</td>
-</tr>
-<tr class="even">
-<td align="left">x_31</td>
-<td align="right">0.7</td>
-<td align="right">0.8</td>
-</tr>
-<tr class="odd">
-<td align="left">x_33</td>
-<td align="right">0.7</td>
-<td align="right">0.9</td>
-</tr>
-<tr class="even">
-<td align="left">x_34</td>
-<td align="right">0.8</td>
-<td align="right">0.9</td>
-</tr>
-<tr class="odd">
-<td align="left">x_35</td>
-<td align="right">0.7</td>
-<td align="right">1.0</td>
-</tr>
-<tr class="even">
-<td align="left">x_36</td>
-<td align="right">0.7</td>
-<td align="right">0.9</td>
-</tr>
-<tr class="odd">
-<td align="left">x_37</td>
-<td align="right">0.7</td>
-<td align="right">0.9</td>
-</tr>
-<tr class="even">
+<td align="right">2</td>
 <td align="left">x_38</td>
-<td align="right">1.0</td>
-<td align="right">0.9</td>
+<td align="right">0.96</td>
+<td align="right">0.91</td>
 </tr>
 <tr class="odd">
-<td align="left">x_39</td>
-<td align="right">0.7</td>
-<td align="right">0.9</td>
-</tr>
-<tr class="even">
-<td align="left">x_40</td>
-<td align="right">0.8</td>
-<td align="right">0.9</td>
-</tr>
-<tr class="odd">
-<td align="left">x_41</td>
-<td align="right">0.8</td>
-<td align="right">0.9</td>
-</tr>
-<tr class="even">
-<td align="left">x_42</td>
-<td align="right">0.7</td>
-<td align="right">1.0</td>
-</tr>
-<tr class="odd">
-<td align="left">x_44</td>
-<td align="right">0.7</td>
-<td align="right">0.9</td>
-</tr>
-<tr class="even">
+<td align="right">3</td>
 <td align="left">x_46</td>
-<td align="right">0.9</td>
-<td align="right">1.0</td>
-</tr>
-<tr class="odd">
-<td align="left">x_47</td>
-<td align="right">0.7</td>
-<td align="right">0.9</td>
+<td align="right">0.91</td>
+<td align="right">0.98</td>
 </tr>
 <tr class="even">
-<td align="left">x_48</td>
-<td align="right">0.7</td>
-<td align="right">0.9</td>
-</tr>
-<tr class="odd">
-<td align="left">x_50</td>
-<td align="right">0.7</td>
-<td align="right">0.9</td>
-</tr>
-<tr class="even">
+<td align="right">4</td>
 <td align="left">x_52</td>
-<td align="right">0.9</td>
-<td align="right">0.9</td>
+<td align="right">0.93</td>
+<td align="right">0.91</td>
 </tr>
 <tr class="odd">
-<td align="left">x_53</td>
-<td align="right">0.8</td>
-<td align="right">0.9</td>
-</tr>
-<tr class="even">
+<td align="right">5</td>
 <td align="left">x_54</td>
-<td align="right">0.9</td>
-<td align="right">0.9</td>
+<td align="right">0.95</td>
+<td align="right">0.95</td>
 </tr>
 </tbody>
 </table>
@@ -1670,7 +1217,7 @@ Estes códigos apresentam a rotina utilizada no curso Psicometria aplicada. As a
 
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
-<p>Nesta sugestão, ficam 32 itens.</p>
+<p>Nesta sugestão, ficam 23 itens.</p>
 <blockquote>
 <p>Fim da aula 1</p>
 </blockquote>
@@ -1678,7 +1225,7 @@ Estes códigos apresentam a rotina utilizada no curso Psicometria aplicada. As a
 </div>
 </div>
 
-<div id="rmd-source-code">LS0tDQp0aXRsZTogIlBzaWNvbWV0cmlhIGFwbGljYWRhIG5vIFIgLSBBdWxhIDEiDQpvdXRwdXQ6DQogIGh0bWxfbm90ZWJvb2s6DQogICAgdG9jOiB5ZXMNCiAgICB0b2NfZmxvYXQ6IHllcw0KICAgIG51bWJlcl9zZWN0aW9uczogeWVzDQogICAgdGhlbWU6IHVuaXRlZA0KICAgIGhpZ2hsaWdodDogdGV4dG1hdGUNCmVkaXRvcl9vcHRpb25zOiANCiAgY2h1bmtfb3V0cHV0X3R5cGU6IGlubGluZQ0KLS0tDQoNCg0KYGBge3IgZ2xvYmFsIG9wdGlvbnMsIGluY2x1ZGUgPSBGQUxTRX0NCmtuaXRyOjpvcHRzX2NodW5rJHNldChlY2hvID0gVFJVRSwgDQogICAgICAgICAgICAgICAgICAgICAgd2FybmluZyA9IEZBTFNFLCANCiAgICAgICAgICAgICAgICAgICAgICBtZXNzYWdlcyA9IEZBTFNFLCANCiAgICAgICAgICAgICAgICAgICAgICBpbmNsdWRlID0gVFJVRSwNCiAgICAgICAgICAgICAgICAgICAgICByZXN1bHRzID0gImhpZGUiKQ0KYGBgDQoNCg0KTGFzdCB1cGRhdGU6ICBgciBmb3JtYXQoU3lzLnRpbWUoKSwgJyVkICVCLCAlWScpYA0KDQoNCjxkaXYgY2xhc3M9ImFsZXJ0IGFsZXJ0LXdhcm5pbmciPg0KKipQcm9wb3N0YSoqICAgDQpFc3RlcyBjw7NkaWdvcyBhcHJlc2VudGFtIGEgcm90aW5hIHV0aWxpemFkYSBubyBjdXJzbyBQc2ljb21ldHJpYSBhcGxpY2FkYS4NCkFzIGF1bGFzIGZvcmFtIGRhZGFzIGVtIGFicmlsIGUgbWFpbyBkZSAyMDIxLg0KQ8OzZGlnb3MgZSByb3RpbmFzIHBvciBMdWlzIEFudW5jaWHDp8OjbywgbHVpc2ZjYUBwdWMtcmlvLmJyICANCjwvZGl2Pg0KDQojIEF1bGEgMSAtIENWQw0KDQojIyBwYWNvdGVzDQoNCmBgYHtyfQ0KcGFjbWFuOjpwX2xvYWQodGlkeXZlcnNlLCBrbml0cikNCmBgYA0KDQoNCiMjIFBlZ2FyIG9zIGRhZG9zDQoNCmBgYHtyfQ0KZHNfY3ZjIDwtIHJlYWQuY3N2KHVybCgiaHR0cHM6Ly9vc2YuaW8vNGRnN2IvZG93bmxvYWQiKSkNCmBgYA0KDQoNCiMjIENWQyBwZXJ0aW7Dqm5jaWENCg0KYGBge3J9DQpjdmNfcGVydGluZW5jaWEgPC0gZHNfY3ZjICU+JSANCiAgc3VtbWFyaXNlKGFjcm9zcyh4XzE6eF81NCwgbWVhbikpICU+JSANCiAgdCgpICU+JSANCiAgYXMuZGF0YS5mcmFtZSgpICU+JSANCiAgcm93bmFtZXNfdG9fY29sdW1uKCJpdGVtIikgJT4lIA0KICBtdXRhdGUoY3ZjID0gVjEvNSkgJT4lIA0KICBtdXRhdGUocGVpID0gKDEvMTEpXjExKSAlPiUgDQogIG11dGF0ZShjdmNfYV9wZXJ0aW5lbmNpYSA9IHJvdW5kKGN2Yy1wZWksMSkpDQpgYGANCg0KYGBge3J9DQpjdmNfcGVydGluZW5jaWEgJT4lIA0KICBrYWJsZSgpDQpgYGANCg0KTyBDVkMgZG8gcXVlc2l0byBwZXJpbjZlbmNpYSBmb2kgZGUgYHIgcm91bmQobWVhbihjdmNfcGVydGluZW5jaWEkY3ZjX2FfcGVydGluZW5jaWEpLDIpYA0KDQojIyBDVkMgY2xhcmV6YQ0KDQoNCmBgYHtyfQ0KY3ZjX2NsYXJlemEgPC0gZHNfY3ZjICU+JSANCiAgc3VtbWFyaXNlKGFjcm9zcyh5XzE6eV81NCwgbWVhbikpICU+JSANCiAgdCgpICU+JSANCiAgYXMuZGF0YS5mcmFtZSgpICU+JSANCiAgcm93bmFtZXNfdG9fY29sdW1uKCJpdGVtIikgJT4lIA0KICBtdXRhdGUoY3ZjID0gVjEvNSkgJT4lIA0KICBtdXRhdGUocGVpID0gKDEvMTEpXjExKSAlPiUgDQogIG11dGF0ZShjdmNfYV9jbGFyZXphID0gcm91bmQoY3ZjLXBlaSwxKSkNCmBgYA0KDQpgYGB7cn0NCmN2Y19jbGFyZXphICU+JSANCiAga2FibGUoKQ0KYGBgDQoNCk8gQ1ZDIGRvIHF1ZXNpdG8gY2xhcmV6YSBmb2kgZGUgYHIgcm91bmQobWVhbihjdmNfY2xhcmV6YSRjdmNfYV9jbGFyZXphKSwyKWANCg0KDQojIyBVbmlyIGFtYm9zIG9zIENWQ3MNCg0KYGBge3J9DQpkc19jdmNfcGVydGluZW5jaWFfY2xhcmV6YSA8LSBiaW5kX2NvbHMoY3ZjX3BlcnRpbmVuY2lhLA0KICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIGN2Y19jbGFyZXphKSAlPiUgDQogIHNlbGVjdChpdGVtLi4uMSwgc3RhcnRzX3dpdGgoImN2Y19hXyIpKQ0KDQpgYGANCg0KIyMgQXByZXNlbnRhcg0KDQpgYGB7cn0NCmRzX2N2Y19wZXJ0aW5lbmNpYV9jbGFyZXphICU+JSANCiAga2FibGUoKQ0KYGBgDQoNCk8gQ1ZDIGdlcmFsIGZvaSBkZSBgciByb3VuZCgxLzIqKG1lYW4oZHNfY3ZjX3BlcnRpbmVuY2lhX2NsYXJlemEkY3ZjX2FfcGVydGluZW5jaWEpK21lYW4oZHNfY3ZjX3BlcnRpbmVuY2lhX2NsYXJlemEkY3ZjX2FfY2xhcmV6YSkpLDEpYC4NCg0KIyMgU3VnZXN0w7Vlcw0KDQrDiSBwb3Nzw612ZWwgcHJvcG9yIGFsZ3VtYXMgc3VnZXN0w7VlcywgY29tbyBkZWl4YXIgYXBlbmFzIG9zIGl0ZW5zIGVtIHF1ZSBhbWJvcyBvcyBDVkNzIHPDo28gc3VwZXJpb3JlcyBhIDAuNw0KDQpgYGB7cn0NCmRzX2N2Y19wZXJ0aW5lbmNpYV9jbGFyZXphICU+JSANCiAgZmlsdGVyKGN2Y19hX3BlcnRpbmVuY2lhID49IDAuNyAmIGN2Y19hX2NsYXJlemEgPj0gMC43ICkgJT4lIA0KICBrYWJsZSgpDQpgYGANCk5lc3RhIHN1Z2VzdMOjbywgZmljYW0gYHIgZHNfY3ZjX3BlcnRpbmVuY2lhX2NsYXJlemEgJT4lIGZpbHRlcihjdmNfYV9wZXJ0aW5lbmNpYSA+PSAwLjcgJiBjdmNfYV9jbGFyZXphID49IDAuNyApICU+JSBucm93KClgIGl0ZW5zLg0KDQo+IEZpbSBkYSBhdWxhIDENCg0KDQo=</div>
+<div id="rmd-source-code">LS0tDQp0aXRsZTogIlBzaWNvbWV0cmlhIGFwbGljYWRhIG5vIFIgLSBBdWxhIDEiDQpvdXRwdXQ6DQogIGh0bWxfbm90ZWJvb2s6DQogICAgdG9jOiB5ZXMNCiAgICB0b2NfZmxvYXQ6IHllcw0KICAgIG51bWJlcl9zZWN0aW9uczogeWVzDQogICAgdGhlbWU6IHVuaXRlZA0KICAgIGhpZ2hsaWdodDogdGV4dG1hdGUNCmVkaXRvcl9vcHRpb25zOiANCiAgY2h1bmtfb3V0cHV0X3R5cGU6IGlubGluZQ0KLS0tDQoNCg0KYGBge3IgZ2xvYmFsIG9wdGlvbnMsIGluY2x1ZGUgPSBGQUxTRX0NCmtuaXRyOjpvcHRzX2NodW5rJHNldChlY2hvID0gVFJVRSwgDQogICAgICAgICAgICAgICAgICAgICAgd2FybmluZyA9IEZBTFNFLCANCiAgICAgICAgICAgICAgICAgICAgICBtZXNzYWdlcyA9IEZBTFNFLCANCiAgICAgICAgICAgICAgICAgICAgICBpbmNsdWRlID0gVFJVRSwNCiAgICAgICAgICAgICAgICAgICAgICByZXN1bHRzID0gImhpZGUiKQ0KYGBgDQoNCg0KTGFzdCB1cGRhdGU6ICBgciBmb3JtYXQoU3lzLnRpbWUoKSwgJyVkICVCLCAlWScpYA0KDQoNCjxkaXYgY2xhc3M9ImFsZXJ0IGFsZXJ0LXdhcm5pbmciPg0KKipQcm9wb3N0YSoqICAgDQpFc3RlcyBjw7NkaWdvcyBhcHJlc2VudGFtIGEgcm90aW5hIHV0aWxpemFkYSBubyBjdXJzbyBQc2ljb21ldHJpYSBhcGxpY2FkYS4NCkFzIGF1bGFzIGZvcmFtIGRhZGFzIGVtIGFicmlsIGUgbWFpbyBkZSAyMDIxLg0KQ8OzZGlnb3MgZSByb3RpbmFzIHBvciBMdWlzIEFudW5jaWHDp8OjbywgbHVpc2ZjYUBwdWMtcmlvLmJyICANCjwvZGl2Pg0KDQojIEF1bGEgMSAtIENWQw0KDQojIyBwYWNvdGVzDQoNCmBgYHtyfQ0KcGFjbWFuOjpwX2xvYWQodGlkeXZlcnNlLCBrbml0cikNCmBgYA0KDQoNCiMjIFBlZ2FyIG9zIGRhZG9zDQoNCmBgYHtyfQ0KZHNfY3ZjIDwtIHJlYWQuY3N2KHVybCgiaHR0cHM6Ly9vc2YuaW8vNGRnN2IvZG93bmxvYWQiKSkNCmBgYA0KDQoNCiMjIENWQyBwZXJ0aW7Dqm5jaWENCg0KYGBge3J9DQpjdmNfcGVydGluZW5jaWEgPC0gZHNfY3ZjICU+JSANCiAgc3VtbWFyaXNlKGFjcm9zcyh4XzE6eF81NCwgbWVhbikpICU+JSANCiAgdCgpICU+JSANCiAgYXMuZGF0YS5mcmFtZSgpICU+JSANCiAgcm93bmFtZXNfdG9fY29sdW1uKCJpdGVtIikgJT4lIA0KICBtdXRhdGUoY3ZjID0gVjEvNSkgJT4lIA0KICBtdXRhdGUocGVpID0gKDEvMTEpXjExKSAlPiUgDQogIG11dGF0ZShjdmNfYV9wZXJ0aW5lbmNpYSA9IHJvdW5kKGN2Yy1wZWksMikpDQpgYGANCg0KYGBge3J9DQpjdmNfcGVydGluZW5jaWEgJT4lIA0KICBrYWJsZSgpDQpgYGANCg0KTyBDVkMgZG8gcXVlc2l0byBwZXJpbjZlbmNpYSBmb2kgZGUgYHIgcm91bmQobWVhbihjdmNfcGVydGluZW5jaWEkY3ZjX2FfcGVydGluZW5jaWEpLDIpYA0KDQojIyBDVkMgY2xhcmV6YQ0KDQoNCmBgYHtyfQ0KY3ZjX2NsYXJlemEgPC0gZHNfY3ZjICU+JSANCiAgc3VtbWFyaXNlKGFjcm9zcyh5XzE6eV81NCwgbWVhbikpICU+JSANCiAgdCgpICU+JSANCiAgYXMuZGF0YS5mcmFtZSgpICU+JSANCiAgcm93bmFtZXNfdG9fY29sdW1uKCJpdGVtIikgJT4lIA0KICBtdXRhdGUoY3ZjID0gVjEvNSkgJT4lIA0KICBtdXRhdGUocGVpID0gKDEvMTEpXjExKSAlPiUgDQogIG11dGF0ZShjdmNfYV9jbGFyZXphID0gcm91bmQoY3ZjLXBlaSwyKSkNCmBgYA0KDQpgYGB7cn0NCmN2Y19jbGFyZXphICU+JSANCiAga2FibGUoKQ0KYGBgDQoNCk8gQ1ZDIGRvIHF1ZXNpdG8gY2xhcmV6YSBmb2kgZGUgYHIgcm91bmQobWVhbihjdmNfY2xhcmV6YSRjdmNfYV9jbGFyZXphKSwyKWANCg0KDQojIyBVbmlyIGFtYm9zIG9zIENWQ3MNCg0KYGBge3J9DQpkc19jdmNfcGVydGluZW5jaWFfY2xhcmV6YSA8LSBiaW5kX2NvbHMoY3ZjX3BlcnRpbmVuY2lhLA0KICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIGN2Y19jbGFyZXphKSAlPiUgDQogIHNlbGVjdChpdGVtLi4uMSwgc3RhcnRzX3dpdGgoImN2Y19hXyIpKQ0KDQpgYGANCg0KIyMgQXByZXNlbnRhcg0KDQpgYGB7cn0NCmRzX2N2Y19wZXJ0aW5lbmNpYV9jbGFyZXphICU+JSANCiAga2FibGUoKQ0KYGBgDQoNCk8gQ1ZDIGdlcmFsIGZvaSBkZSBgciByb3VuZCgxLzIqKG1lYW4oZHNfY3ZjX3BlcnRpbmVuY2lhX2NsYXJlemEkY3ZjX2FfcGVydGluZW5jaWEpK21lYW4oZHNfY3ZjX3BlcnRpbmVuY2lhX2NsYXJlemEkY3ZjX2FfY2xhcmV6YSkpLDEpYC4NCg0KIyMgU3VnZXN0w7Vlcw0KDQrDiSBwb3Nzw612ZWwgcHJvcG9yIGFsZ3VtYXMgc3VnZXN0w7VlcywgY29tbyBkZWl4YXIgYXBlbmFzIG9zIGl0ZW5zIGVtIHF1ZSBhbWJvcyBvcyBDVkNzIHPDo28gc3VwZXJpb3JlcyBhIDAuNw0KDQpgYGB7cn0NCmRzX2N2Y19wZXJ0aW5lbmNpYV9jbGFyZXphICU+JSANCiAgZmlsdGVyKGN2Y19hX3BlcnRpbmVuY2lhID49IDAuNyAmIGN2Y19hX2NsYXJlemEgPj0gMC43KSAlPiUgDQogIG11dGF0ZShwb3NpY2FvID0gcm93X251bWJlcigpKSAlPiUgDQogIHNlbGVjdChwb3NpY2FvLCBldmVyeXRoaW5nKCkpICU+JSANCiAga2FibGUoKQ0KYGBgDQpOZXN0YSBzdWdlc3TDo28sIGZpY2FtIGByIGRzX2N2Y19wZXJ0aW5lbmNpYV9jbGFyZXphICU+JSBmaWx0ZXIoY3ZjX2FfcGVydGluZW5jaWEgPj0gMC43ICYgY3ZjX2FfY2xhcmV6YSA+PSAwLjcgKSAlPiUgbnJvdygpYCBpdGVucy4NCg0KPiBGaW0gZGEgYXVsYSAxDQoNCg0K</div>
 
 
 </div>
