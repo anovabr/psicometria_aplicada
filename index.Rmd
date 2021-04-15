@@ -36,7 +36,7 @@ Códigos e rotinas por Luis Anunciação, luisfca@puc-rio.br
 ## pacotes
 
 ```{r}
-pacman::p_load(tidyverse, psych, knitr)
+pacman::p_load(tidyverse, knitr)
 ```
 
 
@@ -119,3 +119,5 @@ ds_cvc_pertinencia_clareza %>%
 Nesta sugestão, ficam `r ds_cvc_pertinencia_clareza %>% filter(cvc_a_pertinencia >= 0.7 & cvc_a_clareza >= 0.7 ) %>% nrow()` itens.
 
 > Fim da aula 1
+
+
