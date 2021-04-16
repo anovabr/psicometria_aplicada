@@ -293,7 +293,7 @@ div.tocify {
 <!-- rnb-text-begin -->
 <!-- rnb-text-end -->
 <!-- rnb-text-begin -->
-<p>Last update: 15 April, 2021</p>
+<p>Last update: 16 April, 2021</p>
 <div class="alert alert-warning">
 <p><strong>Proposta</strong><br />
 Estes códigos apresentam a rotina utilizada no curso Psicometria aplicada. As aulas foram dadas em abril e maio de 2021. Códigos e rotinas por Luis Anunciação, <a href="mailto:luisfca@puc-rio.br" class="email">luisfca@puc-rio.br</a></p>
@@ -324,10 +324,24 @@ Estes códigos apresentam a rotina utilizada no curso Psicometria aplicada. As a
 <h2 number="1.3"><span class="header-section-number">1.3</span> CVC pertinência</h2>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuY3ZjX3BlcnRpbmVuY2lhIDwtIGRzX2N2YyAlPiUgXG4gIHN1bW1hcmlzZShhY3Jvc3MoeF8xOnhfNTQsIG1lYW4pKSAlPiUgXG4gIHQoKSAlPiUgXG4gIGFzLmRhdGEuZnJhbWUoKSAlPiUgXG4gIHJvd25hbWVzX3RvX2NvbHVtbihcIml0ZW1cIikgJT4lIFxuICBtdXRhdGUoY3ZjID0gVjEvNSkgJT4lIFxuICBtdXRhdGUocGVpID0gKDEvMTEpXjExKSAlPiUgXG4gIG11dGF0ZShjdmNfYV9wZXJ0aW5lbmNpYSA9IHJvdW5kKGN2Yy1wZWksMikpXG5gYGAifQ== -->
+<pre class="r"><code>cvc_pertinencia &lt;- ds_cvc %&gt;% 
+  summarise(across(x_1:x_54, mean)) %&gt;% 
+  t() %&gt;% 
+  as.data.frame() %&gt;% 
+  rownames_to_column(&quot;item&quot;) %&gt;% 
+  mutate(cvc = V1/5) %&gt;% 
+  mutate(pei = (1/11)^11) %&gt;% 
+  mutate(cvc_a_pertinencia = round(cvc-pei,2))</code></pre>
+<!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuY3ZjX3BlcnRpbmVuY2lhICU+JSBcbiAga2FibGUoKVxuYGBgIn0= -->
+<pre class="r"><code>cvc_pertinencia %&gt;% 
+  kable()</code></pre>
+<!-- rnb-source-end -->
 
 <!-- rnb-html-begin eyJtZXRhZGF0YSI6eyJjbGFzc2VzIjpbImtuaXRfYXNpcyJdLCJzaXppbmdQb2xpY3kiOltdfX0= -->
 
@@ -734,10 +748,24 @@ Estes códigos apresentam a rotina utilizada no curso Psicometria aplicada. As a
 <h2 number="1.4"><span class="header-section-number">1.4</span> CVC clareza</h2>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuY3ZjX2NsYXJlemEgPC0gZHNfY3ZjICU+JSBcbiAgc3VtbWFyaXNlKGFjcm9zcyh5XzE6eV81NCwgbWVhbikpICU+JSBcbiAgdCgpICU+JSBcbiAgYXMuZGF0YS5mcmFtZSgpICU+JSBcbiAgcm93bmFtZXNfdG9fY29sdW1uKFwiaXRlbVwiKSAlPiUgXG4gIG11dGF0ZShjdmMgPSBWMS81KSAlPiUgXG4gIG11dGF0ZShwZWkgPSAoMS8xMSleMTEpICU+JSBcbiAgbXV0YXRlKGN2Y19hX2NsYXJlemEgPSByb3VuZChjdmMtcGVpLDIpKVxuYGBgIn0= -->
+<pre class="r"><code>cvc_clareza &lt;- ds_cvc %&gt;% 
+  summarise(across(y_1:y_54, mean)) %&gt;% 
+  t() %&gt;% 
+  as.data.frame() %&gt;% 
+  rownames_to_column(&quot;item&quot;) %&gt;% 
+  mutate(cvc = V1/5) %&gt;% 
+  mutate(pei = (1/11)^11) %&gt;% 
+  mutate(cvc_a_clareza = round(cvc-pei,2))</code></pre>
+<!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuY3ZjX2NsYXJlemEgJT4lIFxuICBrYWJsZSgpXG5gYGAifQ== -->
+<pre class="r"><code>cvc_clareza %&gt;% 
+  kable()</code></pre>
+<!-- rnb-source-end -->
 
 <!-- rnb-html-begin eyJtZXRhZGF0YSI6eyJjbGFzc2VzIjpbImtuaXRfYXNpcyJdLCJzaXppbmdQb2xpY3kiOltdfX0= -->
 
@@ -1144,11 +1172,10 @@ Estes códigos apresentam a rotina utilizada no curso Psicometria aplicada. As a
 <h2 number="1.5"><span class="header-section-number">1.5</span> Unir ambos os CVCs</h2>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZHNfY3ZjX3BlcnRpbmVuY2lhX2NsYXJlemEgPC0gYmluZF9jb2xzKGN2Y19wZXJ0aW5lbmNpYSxcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBjdmNfY2xhcmV6YSkgJT4lIFxuICBzZWxlY3QoaXRlbS4uLjEsIHN0YXJ0c193aXRoKFwiY3ZjX2FfXCIpKVxuXG5gYGAifQ== -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZHNfY3ZjX3BlcnRpbmVuY2lhX2NsYXJlemEgPC0gYmluZF9jb2xzKGN2Y19wZXJ0aW5lbmNpYSxcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBjdmNfY2xhcmV6YSkgJT4lIFxuICBzZWxlY3QoaXRlbS4uLjEsIHN0YXJ0c193aXRoKFwiY3ZjX2FfXCIpKVxuYGBgIn0= -->
 <pre class="r"><code>ds_cvc_pertinencia_clareza &lt;- bind_cols(cvc_pertinencia,
                                         cvc_clareza) %&gt;% 
-  select(item...1, starts_with(&quot;cvc_a_&quot;))
-</code></pre>
+  select(item...1, starts_with(&quot;cvc_a_&quot;))</code></pre>
 <!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
@@ -1157,6 +1184,298 @@ Estes códigos apresentam a rotina utilizada no curso Psicometria aplicada. As a
 <h2 number="1.6"><span class="header-section-number">1.6</span> Apresentar</h2>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZHNfY3ZjX3BlcnRpbmVuY2lhX2NsYXJlemEgJT4lIFxuICBrYWJsZSgpXG5gYGAifQ== -->
+<pre class="r"><code>ds_cvc_pertinencia_clareza %&gt;% 
+  kable()</code></pre>
+<!-- rnb-source-end -->
+
+<!-- rnb-html-begin eyJtZXRhZGF0YSI6eyJjbGFzc2VzIjpbImtuaXRfYXNpcyJdLCJzaXppbmdQb2xpY3kiOltdfX0= -->
+
+<table>
+<thead>
+<tr class="header">
+<th align="left">item…1</th>
+<th align="right">cvc_a_pertinencia</th>
+<th align="right">cvc_a_clareza</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">x_1</td>
+<td align="right">0.64</td>
+<td align="right">0.95</td>
+</tr>
+<tr class="even">
+<td align="left">x_2</td>
+<td align="right">0.78</td>
+<td align="right">0.87</td>
+</tr>
+<tr class="odd">
+<td align="left">x_3</td>
+<td align="right">0.53</td>
+<td align="right">0.95</td>
+</tr>
+<tr class="even">
+<td align="left">x_4</td>
+<td align="right">0.53</td>
+<td align="right">0.85</td>
+</tr>
+<tr class="odd">
+<td align="left">x_5</td>
+<td align="right">0.47</td>
+<td align="right">0.82</td>
+</tr>
+<tr class="even">
+<td align="left">x_6</td>
+<td align="right">0.67</td>
+<td align="right">0.85</td>
+</tr>
+<tr class="odd">
+<td align="left">x_7</td>
+<td align="right">0.45</td>
+<td align="right">0.78</td>
+</tr>
+<tr class="even">
+<td align="left">x_8</td>
+<td align="right">0.67</td>
+<td align="right">0.91</td>
+</tr>
+<tr class="odd">
+<td align="left">x_9</td>
+<td align="right">0.36</td>
+<td align="right">0.75</td>
+</tr>
+<tr class="even">
+<td align="left">x_10</td>
+<td align="right">0.75</td>
+<td align="right">0.89</td>
+</tr>
+<tr class="odd">
+<td align="left">x_11</td>
+<td align="right">0.64</td>
+<td align="right">0.95</td>
+</tr>
+<tr class="even">
+<td align="left">x_12</td>
+<td align="right">0.82</td>
+<td align="right">0.91</td>
+</tr>
+<tr class="odd">
+<td align="left">x_13</td>
+<td align="right">0.49</td>
+<td align="right">0.85</td>
+</tr>
+<tr class="even">
+<td align="left">x_14</td>
+<td align="right">0.95</td>
+<td align="right">0.96</td>
+</tr>
+<tr class="odd">
+<td align="left">x_15</td>
+<td align="right">0.69</td>
+<td align="right">0.87</td>
+</tr>
+<tr class="even">
+<td align="left">x_16</td>
+<td align="right">0.80</td>
+<td align="right">0.95</td>
+</tr>
+<tr class="odd">
+<td align="left">x_17</td>
+<td align="right">0.64</td>
+<td align="right">0.95</td>
+</tr>
+<tr class="even">
+<td align="left">x_18</td>
+<td align="right">0.76</td>
+<td align="right">0.91</td>
+</tr>
+<tr class="odd">
+<td align="left">x_19</td>
+<td align="right">0.62</td>
+<td align="right">0.91</td>
+</tr>
+<tr class="even">
+<td align="left">x_20</td>
+<td align="right">0.84</td>
+<td align="right">0.96</td>
+</tr>
+<tr class="odd">
+<td align="left">x_21</td>
+<td align="right">0.58</td>
+<td align="right">0.96</td>
+</tr>
+<tr class="even">
+<td align="left">x_22</td>
+<td align="right">0.58</td>
+<td align="right">0.87</td>
+</tr>
+<tr class="odd">
+<td align="left">x_23</td>
+<td align="right">0.49</td>
+<td align="right">0.67</td>
+</tr>
+<tr class="even">
+<td align="left">x_24</td>
+<td align="right">0.78</td>
+<td align="right">0.80</td>
+</tr>
+<tr class="odd">
+<td align="left">x_25</td>
+<td align="right">0.60</td>
+<td align="right">0.91</td>
+</tr>
+<tr class="even">
+<td align="left">x_26</td>
+<td align="right">0.60</td>
+<td align="right">0.87</td>
+</tr>
+<tr class="odd">
+<td align="left">x_27</td>
+<td align="right">0.60</td>
+<td align="right">0.91</td>
+</tr>
+<tr class="even">
+<td align="left">x_28</td>
+<td align="right">0.58</td>
+<td align="right">0.87</td>
+</tr>
+<tr class="odd">
+<td align="left">x_29</td>
+<td align="right">0.76</td>
+<td align="right">0.89</td>
+</tr>
+<tr class="even">
+<td align="left">x_30</td>
+<td align="right">0.67</td>
+<td align="right">0.89</td>
+</tr>
+<tr class="odd">
+<td align="left">x_31</td>
+<td align="right">0.71</td>
+<td align="right">0.84</td>
+</tr>
+<tr class="even">
+<td align="left">x_32</td>
+<td align="right">0.58</td>
+<td align="right">0.76</td>
+</tr>
+<tr class="odd">
+<td align="left">x_33</td>
+<td align="right">0.69</td>
+<td align="right">0.85</td>
+</tr>
+<tr class="even">
+<td align="left">x_34</td>
+<td align="right">0.76</td>
+<td align="right">0.87</td>
+</tr>
+<tr class="odd">
+<td align="left">x_35</td>
+<td align="right">0.69</td>
+<td align="right">0.96</td>
+</tr>
+<tr class="even">
+<td align="left">x_36</td>
+<td align="right">0.75</td>
+<td align="right">0.87</td>
+</tr>
+<tr class="odd">
+<td align="left">x_37</td>
+<td align="right">0.73</td>
+<td align="right">0.91</td>
+</tr>
+<tr class="even">
+<td align="left">x_38</td>
+<td align="right">0.96</td>
+<td align="right">0.91</td>
+</tr>
+<tr class="odd">
+<td align="left">x_39</td>
+<td align="right">0.69</td>
+<td align="right">0.89</td>
+</tr>
+<tr class="even">
+<td align="left">x_40</td>
+<td align="right">0.76</td>
+<td align="right">0.91</td>
+</tr>
+<tr class="odd">
+<td align="left">x_41</td>
+<td align="right">0.78</td>
+<td align="right">0.91</td>
+</tr>
+<tr class="even">
+<td align="left">x_42</td>
+<td align="right">0.73</td>
+<td align="right">0.96</td>
+</tr>
+<tr class="odd">
+<td align="left">x_43</td>
+<td align="right">0.53</td>
+<td align="right">0.91</td>
+</tr>
+<tr class="even">
+<td align="left">x_44</td>
+<td align="right">0.73</td>
+<td align="right">0.91</td>
+</tr>
+<tr class="odd">
+<td align="left">x_45</td>
+<td align="right">0.44</td>
+<td align="right">0.93</td>
+</tr>
+<tr class="even">
+<td align="left">x_46</td>
+<td align="right">0.91</td>
+<td align="right">0.98</td>
+</tr>
+<tr class="odd">
+<td align="left">x_47</td>
+<td align="right">0.67</td>
+<td align="right">0.91</td>
+</tr>
+<tr class="even">
+<td align="left">x_48</td>
+<td align="right">0.65</td>
+<td align="right">0.85</td>
+</tr>
+<tr class="odd">
+<td align="left">x_49</td>
+<td align="right">0.53</td>
+<td align="right">0.73</td>
+</tr>
+<tr class="even">
+<td align="left">x_50</td>
+<td align="right">0.71</td>
+<td align="right">0.87</td>
+</tr>
+<tr class="odd">
+<td align="left">x_51</td>
+<td align="right">0.56</td>
+<td align="right">0.87</td>
+</tr>
+<tr class="even">
+<td align="left">x_52</td>
+<td align="right">0.93</td>
+<td align="right">0.91</td>
+</tr>
+<tr class="odd">
+<td align="left">x_53</td>
+<td align="right">0.80</td>
+<td align="right">0.93</td>
+</tr>
+<tr class="even">
+<td align="left">x_54</td>
+<td align="right">0.95</td>
+<td align="right">0.95</td>
+</tr>
+</tbody>
+</table>
+
+
+<!-- rnb-html-end -->
+
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <p>O CVC geral foi de 0.8.</p>
@@ -1166,6 +1485,13 @@ Estes códigos apresentam a rotina utilizada no curso Psicometria aplicada. As a
 <p>É possível propor algumas sugestões, como deixar apenas os itens em que ambos os CVCs são superiores a 0.7</p>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZHNfY3ZjX3BlcnRpbmVuY2lhX2NsYXJlemEgJT4lIFxuICBmaWx0ZXIoY3ZjX2FfcGVydGluZW5jaWEgPj0gMC43ICYgY3ZjX2FfY2xhcmV6YSA+PSAwLjcpICU+JSBcbiAgbXV0YXRlKHBvc2ljYW8gPSByb3dfbnVtYmVyKCkpICU+JSBcbiAgc2VsZWN0KHBvc2ljYW8sIGV2ZXJ5dGhpbmcoKSkgJT4lIFxuICBrYWJsZSgpXG5gYGAifQ== -->
+<pre class="r"><code>ds_cvc_pertinencia_clareza %&gt;% 
+  filter(cvc_a_pertinencia &gt;= 0.7 &amp; cvc_a_clareza &gt;= 0.7) %&gt;% 
+  mutate(posicao = row_number()) %&gt;% 
+  select(posicao, everything()) %&gt;% 
+  kable()</code></pre>
+<!-- rnb-source-end -->
 
 <!-- rnb-html-begin eyJtZXRhZGF0YSI6eyJjbGFzc2VzIjpbImtuaXRfYXNpcyJdLCJzaXppbmdQb2xpY3kiOltdfX0= -->
 
@@ -1181,30 +1507,138 @@ Estes códigos apresentam a rotina utilizada no curso Psicometria aplicada. As a
 <tbody>
 <tr class="odd">
 <td align="right">1</td>
+<td align="left">x_2</td>
+<td align="right">0.78</td>
+<td align="right">0.87</td>
+</tr>
+<tr class="even">
+<td align="right">2</td>
+<td align="left">x_10</td>
+<td align="right">0.75</td>
+<td align="right">0.89</td>
+</tr>
+<tr class="odd">
+<td align="right">3</td>
+<td align="left">x_12</td>
+<td align="right">0.82</td>
+<td align="right">0.91</td>
+</tr>
+<tr class="even">
+<td align="right">4</td>
 <td align="left">x_14</td>
 <td align="right">0.95</td>
 <td align="right">0.96</td>
 </tr>
+<tr class="odd">
+<td align="right">5</td>
+<td align="left">x_16</td>
+<td align="right">0.80</td>
+<td align="right">0.95</td>
+</tr>
 <tr class="even">
-<td align="right">2</td>
+<td align="right">6</td>
+<td align="left">x_18</td>
+<td align="right">0.76</td>
+<td align="right">0.91</td>
+</tr>
+<tr class="odd">
+<td align="right">7</td>
+<td align="left">x_20</td>
+<td align="right">0.84</td>
+<td align="right">0.96</td>
+</tr>
+<tr class="even">
+<td align="right">8</td>
+<td align="left">x_24</td>
+<td align="right">0.78</td>
+<td align="right">0.80</td>
+</tr>
+<tr class="odd">
+<td align="right">9</td>
+<td align="left">x_29</td>
+<td align="right">0.76</td>
+<td align="right">0.89</td>
+</tr>
+<tr class="even">
+<td align="right">10</td>
+<td align="left">x_31</td>
+<td align="right">0.71</td>
+<td align="right">0.84</td>
+</tr>
+<tr class="odd">
+<td align="right">11</td>
+<td align="left">x_34</td>
+<td align="right">0.76</td>
+<td align="right">0.87</td>
+</tr>
+<tr class="even">
+<td align="right">12</td>
+<td align="left">x_36</td>
+<td align="right">0.75</td>
+<td align="right">0.87</td>
+</tr>
+<tr class="odd">
+<td align="right">13</td>
+<td align="left">x_37</td>
+<td align="right">0.73</td>
+<td align="right">0.91</td>
+</tr>
+<tr class="even">
+<td align="right">14</td>
 <td align="left">x_38</td>
 <td align="right">0.96</td>
 <td align="right">0.91</td>
 </tr>
 <tr class="odd">
-<td align="right">3</td>
+<td align="right">15</td>
+<td align="left">x_40</td>
+<td align="right">0.76</td>
+<td align="right">0.91</td>
+</tr>
+<tr class="even">
+<td align="right">16</td>
+<td align="left">x_41</td>
+<td align="right">0.78</td>
+<td align="right">0.91</td>
+</tr>
+<tr class="odd">
+<td align="right">17</td>
+<td align="left">x_42</td>
+<td align="right">0.73</td>
+<td align="right">0.96</td>
+</tr>
+<tr class="even">
+<td align="right">18</td>
+<td align="left">x_44</td>
+<td align="right">0.73</td>
+<td align="right">0.91</td>
+</tr>
+<tr class="odd">
+<td align="right">19</td>
 <td align="left">x_46</td>
 <td align="right">0.91</td>
 <td align="right">0.98</td>
 </tr>
 <tr class="even">
-<td align="right">4</td>
+<td align="right">20</td>
+<td align="left">x_50</td>
+<td align="right">0.71</td>
+<td align="right">0.87</td>
+</tr>
+<tr class="odd">
+<td align="right">21</td>
 <td align="left">x_52</td>
 <td align="right">0.93</td>
 <td align="right">0.91</td>
 </tr>
+<tr class="even">
+<td align="right">22</td>
+<td align="left">x_53</td>
+<td align="right">0.80</td>
+<td align="right">0.93</td>
+</tr>
 <tr class="odd">
-<td align="right">5</td>
+<td align="right">23</td>
 <td align="left">x_54</td>
 <td align="right">0.95</td>
 <td align="right">0.95</td>
