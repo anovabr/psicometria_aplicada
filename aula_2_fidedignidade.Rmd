@@ -85,12 +85,6 @@ ds_bai_interitem <- ds_bai %>%
   set_names("cor") %>% 
   rownames_to_column("item")
 ```
-
-```{r}
-psych::polychoric(ds_bai)$tau
-```
-
-
 ### Coeficiente de correlação interitem
 
 ```{r}
@@ -134,10 +128,17 @@ do.call(rbind,cronb) %>% #colocar num dataframe
 > O Alfa funciona bem como um indicator de "in"precisão.
 
 
+
 #### Apresentação  
 
 ```{r}
 alpha(ds_bai)
+```
+
+### Alfa com correlação policórica
+
+```{r}
+alpha(psych::polychoric(ds_bai)$rho)
 ```
 
 
@@ -159,10 +160,4 @@ x$uniquenesses) %>% as.data.frame()
 
 (sum(j$MR1)^2)/((sum(j$MR1)^2) + sum(j$V2))
 ```
-
-
-### Alfa Ordinal
-
-```{r}
-splitHalf(ds_bai)
-```
+> Fim da aula 2
