@@ -1,0 +1,106 @@
+---
+title: "Psicometria aplicada no R - Aula 3 (29 de abril de 2021)"
+output:
+  html_notebook:
+    toc: yes
+    toc_float: yes
+    number_sections: yes
+    theme: united
+    highlight: textmate
+editor_options: 
+  chunk_output_type: inline
+---
+
+# Aula 3 - Analise exploratória
+
+## pacotes
+
+```{r}
+pacman::p_load(tidyverse, psych, knitr)
+```
+
+
+## Pegar os dados
+
+
+```{r}
+ds_60_random <- read.csv(url("https://osf.io/cv475/download"))
+```
+
+
+## Verificar distribuição das respostas
+
+```{r}
+ds_60_random %>% 
+  select(starts_with("q")) %>% 
+  summarytools::descr()
+```
+
+
+
+## EFA
+
+
+### Viabilidade
+
+```{r}
+ds_60_random %>% 
+  select(starts_with("q")) %>%  KMO()
+```
+
+```{r}
+ds_60_random %>% 
+  select(starts_with("q")) %>% 
+  cortest.bartlett()
+```
+### Modelo correlacional
+
+```{r}
+set.seed(2)
+rho_60 <- ds_60_random %>% select(starts_with("q")) %>% 
+  polychoric(.)
+rho_60 <- rho_60$rho 
+```
+
+
+### Dimensionalidade
+
+
+#### Scree-plot (Pearson)
+
+> Calcular os autovalores de cada um dos fatores
+> É possível ter tantos fatores retidos como itens do instrumento
+> Por definição, os autovalores da PCA > EFA (isso se dá a inclusõa do erro na estimativa da PCA -- maximizar a variância explicada)
+
+```{r}
+ds_60_random %>% 
+  select(starts_with("q")) %>% 
+  scree()
+```
+
+#### Análise Paralela (Pearson)
+
+```{r}
+parallel <- ds_60_random  %>% 
+  fa.parallel(.)
+```
+
+#### Scree-plot (Policorica)
+
+```{r }
+parallel <- rho_60 %>%
+  fa.parallel(.)
+```
+
+
+### Rotação/Interpretação 
+
+```{r}
+sol_elbow <- fa(rho_60,
+   fm = "wls",
+   nfactors = 2, rotate = "Promax")
+sol_elbow
+```
+
+
+> Fim da aula 3
