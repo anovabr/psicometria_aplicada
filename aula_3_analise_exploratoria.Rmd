@@ -61,7 +61,7 @@ rho_60 <- ds_60_random %>% select(starts_with("q")) %>%
   polychoric(.)
 rho_60 <- rho_60$rho 
 ```
-
+> Com muita frequência, técnicas de suavização precisam ser feitas após correlações policóricas.
 
 ### Dimensionalidade
 
@@ -84,6 +84,7 @@ ds_60_random %>%
 parallel <- ds_60_random  %>% 
   fa.parallel(.)
 ```
+> Over factoring
 
 #### Scree-plot (Policorica)
 
@@ -93,13 +94,33 @@ parallel <- rho_60 %>%
 ```
 
 
-### Rotação/Interpretação 
+### Solução elbow
 
 ```{r}
 sol_elbow <- fa(rho_60,
    fm = "wls",
    nfactors = 2, rotate = "Promax")
 sol_elbow
+```
+
+### Solução paralela
+
+```{r}
+sol_paralela <- fa(rho_60,
+   fm = "wls",
+   nfactors = 3, rotate = "Promax")
+sol_paralela
+```
+### Apresentação
+
+
+```{r}
+as.data.frame(unclass(sol_elbow$loadings)) %>% 
+    data.frame() %>% 
+    setNames(paste0("X", seq_along(.) - 1)) %>% #get specific names
+    rownames_to_column("item") %>% 
+    arrange(desc(X0)) %>% 
+    mutate_if(is.numeric, round, 3) 
 ```
 
 
