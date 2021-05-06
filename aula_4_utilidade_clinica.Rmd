@@ -1,0 +1,217 @@
+---
+title: "Psicometria aplicada no R - Aula 4 (5 de maio de 2021)"
+output:
+  html_notebook:
+    toc: yes
+    toc_float: yes
+    number_sections: yes
+    theme: united
+    highlight: textmate
+editor_options: 
+  chunk_output_type: inline
+---
+
+# Aula 4 - Medidas clínicas
+
+## pacotes
+
+```{r}
+pacman::p_load(tidyverse, summarytools, arsenal, cutpointr, knitr)
+```
+
+
+## Pegar os dados
+
+
+```{r}
+ds_full <- read.csv(url("https://osf.io/hzx8v/download"))
+```
+
+## Pequeno ajuste 
+
+```{r}
+ds_full$age_group %>% table()
+ds_full <- ds_full %>% 
+  mutate(age_group = factor(age_group, levels = c("[5,6]", "(6,8]", "(8,10]" , "(10,12]", 
+                                                  "(12,14]", "(14,16]", "(16,18]")))
+```
+
+
+## Verificar os dados
+
+```{r, eval = FALSE }
+view(dfSummary(ds_full)) 
+```
+
+## Características da amostra
+
+```{r}
+ds_full %>% 
+  select(sex, age_group, group) %>% 
+  tableby(group ~ ., data = . ) %>% 
+  summary() 
+  
+```
+```{r}
+ds_full %>% 
+  filter(group == "typical") %>% 
+  select(sex, age_group,) %>% 
+  tableby(~ ., data = . ) %>% 
+  summary() 
+  
+```
+
+## Distribuição dos resultados
+
+```{r}
+ds_full %>% 
+  filter(group == "typical") %>% 
+  ggplot(., aes(parents_total)) +
+  geom_histogram(aes(x=parents_total,y=..density..), 
+                 position="identity", alpha = 0.9) + 
+  geom_density(alpha=0.2, fill = "blue") +
+  theme_bw()
+```
+
+
+```{r}
+ds_full %>% 
+  filter(group == "typical") %>% 
+  select(parents_total) %>% 
+  descr()
+```
+
+
+## Primeiras normas
+
+```{r}
+ds_full %>% 
+  filter(group == "typical") %>% 
+  summarise_at(vars(parents_total), 
+               ~quantile(parents_total, 
+                         probs = c(seq(from = 0.05, to = 0.95, by = 0.05)))) %>% #get percentiles
+  mutate(percentil = seq(0.05, 0.95, by = 0.05)) %>% 
+  select(percentil, parents_total)
+```
+
+### A intuição do percentil
+
+```{r}
+ds_full %>% 
+  filter(group == "typical") %>% 
+  summarise(percentil_5 = 5*(3284+1)/100)
+```
+
+```{r}
+ds_full %>% 
+  filter(group == "typical") %>% 
+  arrange(parents_total) %>% 
+  select(parents_total) %>% 
+  slice(165)
+```
+
+```{r}
+ds_full %>% 
+  filter(group == "typical") %>% 
+  summarise(percentil_5 = 10*(3284+1)/100)
+```
+
+```{r}
+ds_full %>% 
+  filter(group == "typical") %>% 
+  arrange(parents_total) %>% 
+  select(parents_total) %>% 
+  slice(329)
+```
+
+
+
+## Teste de hipóteses
+
+```{r}
+ds_full %>% 
+  filter(group == "typical") %>% 
+  ggplot(., aes(y=teachers_total, x=age, color = sex)) +
+  geom_smooth(method = "lm") +
+  theme_bw()
+```
+
+
+```{r}
+ds_full %>% 
+  filter(group == "typical") %>% 
+  ggplot(., aes(y=parents_total, x=age, color = sex)) +
+  geom_smooth(method = "lm") +
+  theme_bw()
+```
+
+
+```{r}
+ds_full %>% 
+  filter(group == "typical") %>% 
+  lm(parents_total ~ age * sex, data = .) %>% 
+  apaTables::apa.aov.table()
+```
+
+## Normas por idade
+
+```{r}
+ds_full %>% 
+  filter(group == "typical") %>% 
+  group_by(age_group) %>% 
+  summarise_at(vars(parents_total), 
+               ~quantile(parents_total, 
+                         probs = c(seq(from = 0.05, to = 0.95, by = 0.05)))) %>% #get percentiles
+  mutate(percentil = seq(0.05, 0.95, by = 0.05)) %>% 
+  select(percentil, parents_total)
+```
+## ROC
+
+## Formar ds específico
+
+```{r}
+dados_predict <- ds_full %>% 
+  select(group, parents_total) %>% 
+  mutate(diag = if_else(group == "typical",0,1))
+```
+
+
+```{r}
+dados_predict
+```
+
+
+## Buscar ponto de corte 
+
+```{r}
+cutoff_efica_p <- cutpointr(dados_predict, parents_total, diag, 
+                method = maximize_metric,  
+                metric = youden)
+summary(cutoff_efica_p)
+```
+
+```{r}
+plot(cutoff_efica_p)
+
+```
+
+
+## Relação entre modelos
+
+```{r}
+mwithiney <- wilcox.test(parents_total ~ diag, data = dados_predict)
+mwithiney
+```
+
+```{r}
+1-(mwithiney$statistic/(165*3284))
+```
+
+```{r}
+dados_predict %>% 
+  group_by(diag) %>% 
+  count
+```
+
+
+> Fim da aula 3

@@ -1,5 +1,5 @@
 ---
-title: "Psicometria aplicada no R - Aula 3 (29 de abril de 2021)"
+title: "Psicometria aplicada no R - Aula 4 (5 de maio de 2021)"
 output:
   html_notebook:
     toc: yes
@@ -11,12 +11,12 @@ editor_options:
   chunk_output_type: inline
 ---
 
-# Aula 3 - Analise exploratória
+# Aula 4 - Medidas clínicas
 
 ## pacotes
 
 ```{r}
-pacman::p_load(tidyverse, psych, knitr)
+pacman::p_load(tidyverse, summarytools, arsenal, knitr)
 ```
 
 
@@ -24,104 +24,60 @@ pacman::p_load(tidyverse, psych, knitr)
 
 
 ```{r}
-ds_60_random <- read.csv(url("https://osf.io/cv475/download"))
+ds_full <- read.csv(url("https://osf.io/hzx8v/download"))
+```
+
+## Pequeno ajuste 
+
+```{r}
+ds_full$age_group %>% table()
+ds_full <- ds_full %>% 
+  mutate(age_group = factor(age_group, levels = c("[5,6]", "(6,8]", "(8,10]" , "(10,12]", 
+                                                  "(12,14]", "(14,16]", "(16,18]")))
 ```
 
 
 ## Verificar distribuição das respostas
 
-```{r}
-ds_60_random %>% 
-  select(starts_with("q")) %>% 
-  summarytools::descr()
+```{r, eval = FALSE }
+view(dfSummary(ds_full)) 
 ```
 
-
-
-## EFA
-
-
-### Viabilidade
+## Características da amostra
 
 ```{r}
-ds_60_random %>% 
-  select(starts_with("q")) %>%  KMO()
+ds_full %>% 
+  select(sex, age_group, group) %>% 
+  tableby(group ~ ., data = . ) %>% 
+  summary() %>% 
+  kable(.)
+  
 ```
+```{r}
+ds_full %>% 
+  filter(group == "typical") %>% 
+  select(sex, age_group,) %>% 
+  tableby(~ ., data = . ) %>% 
+  summary() %>% 
+  kable("html", escape = F)
+  
+```
+
+## Distribuição dos resultados
 
 ```{r}
-ds_60_random %>% 
-  select(starts_with("q")) %>% 
-  cortest.bartlett()
-```
-### Modelo correlacional
-
-```{r}
-set.seed(2)
-rho_60 <- ds_60_random %>% select(starts_with("q")) %>% 
-  polychoric(.)
-rho_60 <- rho_60$rho 
-```
-> Com muita frequência, técnicas de suavização precisam ser feitas após correlações policóricas.
-
-### Dimensionalidade
-
-
-#### Scree-plot (Pearson)
-
-> Calcular os autovalores de cada um dos fatores
-> É possível ter tantos fatores retidos como itens do instrumento
-> Por definição, os autovalores da PCA > EFA (isso se dá a inclusõa do erro na estimativa da PCA -- maximizar a variância explicada)
-
-```{r}
-ds_60_random %>% 
-  select(starts_with("q")) %>% 
-  scree()
-```
-
-#### Análise Paralela (Pearson)
-
-```{r}
-parallel <- ds_60_random  %>% 
-  fa.parallel(.)
-```
-> Over factoring
-
-#### Scree-plot (Policorica)
-
-```{r }
-parallel <- rho_60 %>%
-  fa.parallel(.)
+ds_full %>% 
+  filter(group == "typical") %>% 
+  ggplot(., aes(total)) +
+   geom_histogram(breaks = seq(0, 40, by = 5),
+                  aes(x=total,y=..density..), 
+                  position="identity", alpha = 0.5) + 
+  geom_density(alpha=0.2, fill = "blue") +
+  theme_bw()
 ```
 
 
-### Solução elbow
 
-```{r}
-sol_elbow <- fa(rho_60,
-   fm = "wls",
-   nfactors = 2, rotate = "Promax")
-sol_elbow
-```
-
-### Solução paralela
-
-```{r}
-sol_paralela <- fa(rho_60,
-   fm = "wls",
-   nfactors = 3, rotate = "Promax")
-sol_paralela
-```
-### Apresentação
-
-
-```{r}
-as.data.frame(unclass(sol_elbow$loadings)) %>% 
-    data.frame() %>% 
-    setNames(paste0("X", seq_along(.) - 1)) %>% #get specific names
-    rownames_to_column("item") %>% 
-    arrange(desc(X0)) %>% 
-    mutate_if(is.numeric, round, 3) 
-```
 
 
 > Fim da aula 3
